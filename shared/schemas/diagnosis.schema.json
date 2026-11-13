@@ -1,0 +1,31 @@
+{
+  "additionalProperties": false,
+  "properties": {
+    "correct": {
+      "title": "Correct",
+      "type": "boolean"
+    },
+    "error_type": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Error Type"
+    },
+    "message": {
+      "title": "Message",
+      "type": "string"
+    }
+  },
+  "required": [
+    "correct",
+    "message"
+  ],
+  "title": "Diagnosis",
+  "type": "object"
+}

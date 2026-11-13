@@ -1,0 +1,168 @@
+{
+  "$defs": {
+    "Answer": {
+      "additionalProperties": false,
+      "properties": {
+        "key": {
+          "title": "Key",
+          "type": "string"
+        },
+        "task": {
+          "enum": [
+            "find_rate",
+            "find_initial",
+            "build_model",
+            "predict",
+            "inverse",
+            "intersect",
+            "compare",
+            "steepness",
+            "parallel",
+            "perpendicular"
+          ],
+          "title": "Task",
+          "type": "string"
+        },
+        "value": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Value"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Unit"
+        },
+        "display": {
+          "title": "Display",
+          "type": "string"
+        }
+      },
+      "required": [
+        "key",
+        "task",
+        "display"
+      ],
+      "title": "Answer",
+      "type": "object"
+    },
+    "Step": {
+      "additionalProperties": false,
+      "properties": {
+        "stage": {
+          "enum": [
+            "pahami",
+            "rumuskan",
+            "selesaikan",
+            "tafsirkan",
+            "periksa"
+          ],
+          "title": "Stage",
+          "type": "string"
+        },
+        "text": {
+          "title": "Text",
+          "type": "string"
+        },
+        "latex": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Latex"
+        },
+        "micro_steps": {
+          "items": {
+            "type": "string"
+          },
+          "title": "Micro Steps",
+          "type": "array"
+        },
+        "hints": {
+          "items": {
+            "type": "string"
+          },
+          "maxItems": 3,
+          "minItems": 3,
+          "title": "Hints",
+          "type": "array"
+        }
+      },
+      "required": [
+        "stage",
+        "text",
+        "hints"
+      ],
+      "title": "Step",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "answers": {
+      "items": {
+        "$ref": "#/$defs/Answer"
+      },
+      "title": "Answers",
+      "type": "array"
+    },
+    "steps": {
+      "items": {
+        "$ref": "#/$defs/Step"
+      },
+      "title": "Steps",
+      "type": "array"
+    },
+    "accepted_forms": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Accepted Forms",
+      "type": "array"
+    },
+    "interpretation": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Interpretation",
+      "type": "array"
+    },
+    "reasonableness": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Reasonableness",
+      "type": "array"
+    }
+  },
+  "required": [
+    "answers",
+    "steps",
+    "accepted_forms",
+    "interpretation",
+    "reasonableness"
+  ],
+  "title": "Solution",
+  "type": "object"
+}

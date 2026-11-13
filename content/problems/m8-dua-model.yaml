@@ -1,0 +1,41 @@
+# Soal cerita modul M8 (Membandingkan Dua Model).
+
+- id: WP-T9-ojek
+  module: M8
+  type: T9
+  context: personal
+  context_level: K-C
+  cognitive_level: penalaran
+  title: Memilih Aplikasi Ojek
+  text: "Aplikasi Ojek A memasang tarif Rp{ca} untuk biaya awal ditambah Rp{ma} setiap km. Aplikasi Ojek B memasang tarif Rp{cb} untuk biaya awal ditambah Rp{mb} setiap km. Pada jarak berapa km kedua tarif sama? Untuk perjalanan {x} km, aplikasi mana yang lebih murah?"
+  params: {ca: 6000, ma: 2000, cb: 3000, mb: 2500, x: 10}
+  models:
+    - name: Ojek A
+      x: {meaning: jarak tempuh, unit: km}
+      y: {meaning: biaya, unit: rupiah}
+      m: "{ma}"
+      c: "{ca}"
+    - name: Ojek B
+      x: {meaning: jarak tempuh, unit: km}
+      y: {meaning: biaya, unit: rupiah}
+      m: "{mb}"
+      c: "{cb}"
+  tasks:
+    - {kind: intersect}
+    - {kind: compare, x: "{x}"}
+  reflection_prompt: "Kapan kamu akan memilih Ojek B? Jelaskan alasanmu."
+
+- id: WP-T10-jalan
+  module: M8
+  type: T10
+  context: sosial-budaya
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Jalan Baru di Peta Desa
+  text: "Pada peta desa, jalan lama digambarkan sebagai garis dengan gradien 2/3. Pemerintah desa akan membuat jalan baru yang tegak lurus dengan jalan lama. Berapa gradien jalan baru?"
+  models:
+    - x: {meaning: posisi mendatar pada peta, unit: kotak}
+      y: {meaning: posisi tegak pada peta, unit: kotak}
+      m: "2/3"
+  tasks:
+    - {kind: perpendicular}

@@ -1,0 +1,497 @@
+{
+  "module": "M8",
+  "problems": [
+    {
+      "id": "WP-T10-jalan",
+      "module": "M8",
+      "type": "T10",
+      "context": "sosial-budaya",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Jalan Baru di Peta Desa",
+      "text": "Pada peta desa, jalan lama digambarkan sebagai garis dengan gradien 2/3. Pemerintah desa akan membuat jalan baru yang tegak lurus dengan jalan lama. Berapa gradien jalan baru?",
+      "stimulus": null,
+      "annotations": {
+        "known": [],
+        "asked": [
+          {
+            "start": 149,
+            "end": 175
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "posisi mendatar pada peta",
+            "unit": "kotak"
+          },
+          "y": {
+            "meaning": "posisi tegak pada peta",
+            "unit": "kotak"
+          },
+          "m": "2/3",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "perpendicular",
+          "x": null,
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "perpendicular",
+            "value": "-3/2",
+            "unit": null,
+            "display": "-1,5"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Laju: 2/3 kotak per kotak",
+              "Ditanya: gradien garis yang tegak lurus"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = posisi mendatar pada peta (kotak), y = posisi tegak pada peta (kotak).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Posisi tegak pada peta bergantung pada posisi mendatar pada peta.",
+              "x = posisi mendatar pada peta (kotak), y = posisi tegak pada peta (kotak)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): 2/3 kotak per kotak.",
+            "latex": null,
+            "micro_steps": [
+              "m = 2/3"
+            ],
+            "hints": [
+              "Laju adalah perubahan posisi tegak pada peta untuk setiap 1 kotak.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 2/3"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah posisi tegak pada peta saat posisi mendatar pada peta = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = (2/3)x",
+            "latex": "y = \\frac{2}{3}x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = (2/3)x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Gunakan m₁ × m₂ = −1.",
+            "latex": null,
+            "micro_steps": [
+              "m₁ × m₂ = −1",
+              "m₂ = −1 ÷ 2/3",
+              "m₂ = -1,5"
+            ],
+            "hints": [
+              "Gradien dua garis tegak lurus jika dikalikan hasilnya −1.",
+              "m₂ = −1 ÷ m₁.",
+              "m₂ = -1,5"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Gradien garis yang tegak lurus adalah -1,5."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: 2/3 × (-1,5) = −1 ✔",
+              "Jika posisi mendatar pada peta = 0, maka posisi tegak pada peta = 0 kotak. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = (2/3)x"
+        ],
+        "interpretation": [
+          "Gradien garis yang tegak lurus adalah -1,5."
+        ],
+        "reasonableness": [
+          "Cek: 2/3 × (-1,5) = −1 ✔",
+          "Jika posisi mendatar pada peta = 0, maka posisi tegak pada peta = 0 kotak. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T9-ojek",
+      "module": "M8",
+      "type": "T9",
+      "context": "personal",
+      "context_level": "K-C",
+      "cognitive_level": "penalaran",
+      "title": "Memilih Aplikasi Ojek",
+      "text": "Aplikasi Ojek A memasang tarif Rp6.000 untuk biaya awal ditambah Rp2.000 setiap km. Aplikasi Ojek B memasang tarif Rp3.000 untuk biaya awal ditambah Rp2.500 setiap km. Pada jarak berapa km kedua tarif sama? Untuk perjalanan 10 km, aplikasi mana yang lebih murah?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 33,
+            "end": 38
+          },
+          {
+            "start": 67,
+            "end": 72
+          },
+          {
+            "start": 117,
+            "end": 122
+          },
+          {
+            "start": 151,
+            "end": 156
+          },
+          {
+            "start": 224,
+            "end": 226
+          }
+        ],
+        "asked": [
+          {
+            "start": 168,
+            "end": 206
+          },
+          {
+            "start": 207,
+            "end": 262
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": "Ojek A",
+          "x": {
+            "meaning": "jarak tempuh",
+            "unit": "km"
+          },
+          "y": {
+            "meaning": "biaya",
+            "unit": "rupiah"
+          },
+          "m": "2000",
+          "c": "6000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        },
+        {
+          "name": "Ojek B",
+          "x": {
+            "meaning": "jarak tempuh",
+            "unit": "km"
+          },
+          "y": {
+            "meaning": "biaya",
+            "unit": "rupiah"
+          },
+          "m": "2500",
+          "c": "3000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "intersect",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "compare",
+          "x": "10",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "intersect",
+            "value": "6",
+            "unit": "km",
+            "display": "6 km"
+          },
+          {
+            "key": "t2",
+            "task": "compare",
+            "value": null,
+            "unit": null,
+            "display": "Ojek A"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Ojek A: Nilai awal: Rp6.000",
+              "Ojek A: Laju: Rp2.000 per km",
+              "Ojek B: Nilai awal: Rp3.000",
+              "Ojek B: Laju: Rp2.500 per km",
+              "Ditanya: kapan kedua model bernilai sama",
+              "Ditanya: mana yang lebih kecil saat jarak tempuh 10 km"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek A: Tentukan variabel: x = jarak tempuh (km), y = biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Biaya bergantung pada jarak tempuh.",
+              "x = jarak tempuh (km), y = biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek A: Tentukan laju (m): Rp2.000 per km.",
+            "latex": null,
+            "micro_steps": [
+              "m = 2.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan biaya untuk setiap 1 km.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 2.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek A: Nilai awal (c) = Rp6.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 6.000"
+            ],
+            "hints": [
+              "Nilai awal adalah biaya saat jarak tempuh = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 6.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek A: Susun model: y = 2.000x + 6.000",
+            "latex": "y = 2{.}000x + 6{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 2.000x + 6.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek B: Tentukan variabel: x = jarak tempuh (km), y = biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Biaya bergantung pada jarak tempuh.",
+              "x = jarak tempuh (km), y = biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek B: Tentukan laju (m): Rp2.500 per km.",
+            "latex": null,
+            "micro_steps": [
+              "m = 2.500"
+            ],
+            "hints": [
+              "Laju adalah perubahan biaya untuk setiap 1 km.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 2.500"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek B: Nilai awal (c) = Rp3.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 3.000"
+            ],
+            "hints": [
+              "Nilai awal adalah biaya saat jarak tempuh = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 3.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Ojek B: Susun model: y = 2.500x + 3.000",
+            "latex": "y = 2{.}500x + 3{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 2.500x + 3.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Samakan kedua model.",
+            "latex": null,
+            "micro_steps": [
+              "2.000x + 6.000 = 2.500x + 3.000",
+              "2.000x − 2.500x = 3.000 − 6.000",
+              "-500x = -3.000",
+              "x = 6",
+              "y = 18.000"
+            ],
+            "hints": [
+              "Dua model sama besar saat ruas kanannya sama.",
+              "Kumpulkan suku x di kiri dan bilangan di kanan.",
+              "x = 6"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Hitung kedua model untuk x = 10.",
+            "latex": null,
+            "micro_steps": [
+              "Ojek A: y = 2.000 × 10 + 6.000 = 26.000",
+              "Ojek B: y = 2.500 × 10 + 3.000 = 28.000"
+            ],
+            "hints": [
+              "Hitung nilai kedua model untuk x yang sama.",
+              "Bandingkan dua hasilnya. Mana yang lebih kecil?",
+              "Ojek A lebih kecil."
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Ojek A dan Ojek B sama besar saat jarak tempuh 6 km, yaitu Rp18.000. Di atas 6 km, Ojek A lebih kecil; di bawahnya, Ojek B lebih kecil.",
+              "Saat jarak tempuh 10 km, Ojek A: Rp26.000 dan Ojek B: Rp28.000. Ojek A lebih kecil."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: kedua model menghasilkan Rp18.000 saat x = 6 ✔",
+              "Ojek A: Jika jarak tempuh = 0, maka biaya = Rp6.000. Apakah ini sesuai cerita?",
+              "Ojek B: Jika jarak tempuh = 0, maka biaya = Rp3.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 2000x + 6000",
+          "y = 6000 + 2000x",
+          "y = 2500x + 3000",
+          "y = 3000 + 2500x"
+        ],
+        "interpretation": [
+          "Ojek A dan Ojek B sama besar saat jarak tempuh 6 km, yaitu Rp18.000. Di atas 6 km, Ojek A lebih kecil; di bawahnya, Ojek B lebih kecil.",
+          "Saat jarak tempuh 10 km, Ojek A: Rp26.000 dan Ojek B: Rp28.000. Ojek A lebih kecil."
+        ],
+        "reasonableness": [
+          "Cek: kedua model menghasilkan Rp18.000 saat x = 6 ✔",
+          "Ojek A: Jika jarak tempuh = 0, maka biaya = Rp6.000. Apakah ini sesuai cerita?",
+          "Ojek B: Jika jarak tempuh = 0, maka biaya = Rp3.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": "Kapan kamu akan memilih Ojek B? Jelaskan alasanmu.",
+      "glossary": [],
+      "variant_of": null
+    }
+  ]
+}

@@ -1,0 +1,428 @@
+{
+  "$defs": {
+    "SourceModel": {
+      "additionalProperties": false,
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name"
+        },
+        "x": {
+          "$ref": "#/$defs/Variable"
+        },
+        "y": {
+          "$ref": "#/$defs/Variable"
+        },
+        "m": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "M"
+        },
+        "c": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "C"
+        },
+        "points": {
+          "anyOf": [
+            {
+              "items": {
+                "maxItems": 2,
+                "minItems": 2,
+                "prefixItems": [
+                  {
+                    "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+                    "pattern": "^-?\\d+(/\\d+)?$",
+                    "type": "string"
+                  },
+                  {
+                    "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+                    "pattern": "^-?\\d+(/\\d+)?$",
+                    "type": "string"
+                  }
+                ],
+                "type": "array"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Points"
+        },
+        "rise": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rise"
+        },
+        "run": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run"
+        },
+        "domain_min": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Domain Min"
+        },
+        "domain_max": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Domain Max"
+        }
+      },
+      "required": [
+        "x",
+        "y"
+      ],
+      "title": "SourceModel",
+      "type": "object"
+    },
+    "StimulusSource": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "table",
+            "graph"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "model": {
+          "default": 0,
+          "title": "Model",
+          "type": "integer"
+        },
+        "x": {
+          "items": {
+            "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+            "pattern": "^-?\\d+(/\\d+)?$",
+            "type": "string"
+          },
+          "minItems": 2,
+          "title": "X",
+          "type": "array"
+        }
+      },
+      "required": [
+        "kind",
+        "x"
+      ],
+      "title": "StimulusSource",
+      "type": "object"
+    },
+    "Task": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "find_rate",
+            "find_initial",
+            "build_model",
+            "predict",
+            "inverse",
+            "intersect",
+            "compare",
+            "steepness",
+            "parallel",
+            "perpendicular"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "x": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "X"
+        },
+        "y": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Y"
+        },
+        "model": {
+          "default": 0,
+          "title": "Model",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Task",
+      "type": "object"
+    },
+    "Variable": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "description": "Arti variabel, mis. 'jarak tempuh'",
+          "title": "Meaning",
+          "type": "string"
+        },
+        "unit": {
+          "description": "Satuan, mis. 'km', 'rupiah'",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "meaning",
+        "unit"
+      ],
+      "title": "Variable",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "pattern": "^[A-Za-z0-9_-]+$",
+      "title": "Id",
+      "type": "string"
+    },
+    "module": {
+      "default": "M7",
+      "enum": [
+        "M7",
+        "M8"
+      ],
+      "title": "Module",
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "T1",
+        "T2",
+        "T3",
+        "T4",
+        "T5",
+        "T6",
+        "T7",
+        "T8",
+        "T9",
+        "T10"
+      ],
+      "title": "Type",
+      "type": "string"
+    },
+    "context": {
+      "enum": [
+        "personal",
+        "sosial-budaya",
+        "saintifik"
+      ],
+      "title": "Context",
+      "type": "string"
+    },
+    "context_level": {
+      "enum": [
+        "K-A",
+        "K-B",
+        "K-C",
+        "K-D"
+      ],
+      "title": "Context Level",
+      "type": "string"
+    },
+    "cognitive_level": {
+      "enum": [
+        "pemahaman",
+        "penerapan",
+        "penalaran"
+      ],
+      "title": "Cognitive Level",
+      "type": "string"
+    },
+    "title": {
+      "title": "Title",
+      "type": "string"
+    },
+    "text": {
+      "title": "Text",
+      "type": "string"
+    },
+    "params": {
+      "additionalProperties": {
+        "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+        "pattern": "^-?\\d+(/\\d+)?$",
+        "type": "string"
+      },
+      "title": "Params",
+      "type": "object"
+    },
+    "models": {
+      "items": {
+        "$ref": "#/$defs/SourceModel"
+      },
+      "minItems": 1,
+      "title": "Models",
+      "type": "array"
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/Task"
+      },
+      "minItems": 1,
+      "title": "Tasks",
+      "type": "array"
+    },
+    "stimulus": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/StimulusSource"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "distractors": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Distractors",
+      "type": "array"
+    },
+    "reflection_prompt": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Reflection Prompt"
+    },
+    "glossary": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Glossary",
+      "type": "array"
+    },
+    "vary": {
+      "additionalProperties": {
+        "items": {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "type": "string"
+        },
+        "type": "array"
+      },
+      "title": "Vary",
+      "type": "object"
+    },
+    "variants": {
+      "default": 0,
+      "maximum": 10,
+      "minimum": 0,
+      "title": "Variants",
+      "type": "integer"
+    },
+    "seed": {
+      "default": 0,
+      "title": "Seed",
+      "type": "integer"
+    }
+  },
+  "required": [
+    "id",
+    "type",
+    "context",
+    "context_level",
+    "cognitive_level",
+    "title",
+    "text",
+    "models",
+    "tasks"
+  ],
+  "title": "ProblemSource",
+  "type": "object"
+}

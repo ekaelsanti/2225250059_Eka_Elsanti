@@ -1,0 +1,24 @@
+{
+  "name": "gradiekan",
+  "private": true,
+  "description": "GradieKAn: belajar gradien, literasi matematika, dan pemodelan soal cerita (JavaScript + Python)",
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev -w @gradiekan/web",
+    "build:web": "npm run build -w @gradiekan/web",
+    "preview:web": "npm run preview -w @gradiekan/web",
+    "test:web": "npm run test -w @gradiekan/web",
+    "build:content": "node scripts/py.mjs -m mathengine build-content --strict",
+    "validate:content": "node scripts/py.mjs -m mathengine validate --strict",
+    "export:schemas": "node scripts/py.mjs -m mathengine export-schemas",
+    "dev:api": "node scripts/py.mjs -m uvicorn mathengine.api:app --reload --port 8000",
+    "test:py": "node scripts/py.mjs -m pytest -q",
+    "lint:py": "node scripts/py.mjs -m ruff check .",
+    "test:all": "npm run test:py && npm run test:web"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "description": "Normalisasi bilangan gaya Indonesia ke pecahan eksak 'p/q'. Dijalankan oleh pytest dan Vitest.",
+  "cases": [
+    {"input": "6/4", "expected": "3/2"},
+    {"input": "3/-6", "expected": "-1/2"},
+    {"input": "0/5", "expected": "0"},
+    {"input": "2,5", "expected": "5/2"},
+    {"input": "12.000", "expected": "12000"},
+    {"input": "1.500.000", "expected": "1500000"},
+    {"input": "-7", "expected": "-7"},
+    {"input": "−3/4", "expected": "-3/4"},
+    {"input": "1.5", "expected": "3/2"},
+    {"input": "0,025", "expected": "1/40"}
+  ],
+  "invalid": ["", "abc", "1/0", "2/"]
+}

@@ -1,0 +1,3533 @@
+{
+  "module": "M7",
+  "problems": [
+    {
+      "id": "WP-T1-beras",
+      "module": "M7",
+      "type": "T1",
+      "context": "personal",
+      "context_level": "K-A",
+      "cognitive_level": "pemahaman",
+      "title": "Membeli Beras",
+      "text": "Harga beras di warung Bu Sari Rp14.000 per kg. Nadia membeli 3 kg beras. Berapa yang harus dibayar Nadia?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 32,
+            "end": 38
+          },
+          {
+            "start": 61,
+            "end": 62
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 105
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "berat beras",
+            "unit": "kg"
+          },
+          "y": {
+            "meaning": "harga",
+            "unit": "rupiah"
+          },
+          "m": "14000",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "predict",
+          "x": "3",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "predict",
+            "value": "42000",
+            "unit": "rupiah",
+            "display": "Rp42.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Laju: Rp14.000 per kg",
+              "Ditanya: harga saat berat beras 3 kg"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = berat beras (kg), y = harga (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Harga bergantung pada berat beras.",
+              "x = berat beras (kg), y = harga (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp14.000 per kg.",
+            "latex": null,
+            "micro_steps": [
+              "m = 14.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan harga untuk setiap 1 kg.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 14.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah harga saat berat beras = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 14.000x",
+            "latex": "y = 14{.}000x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 14.000x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 3 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 14.000x",
+              "y = 14.000 × 3",
+              "y = 42.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 42.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Harga saat berat beras 3 kg adalah Rp42.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 14000x"
+        ],
+        "interpretation": [
+          "Harga saat berat beras 3 kg adalah Rp42.000."
+        ],
+        "reasonableness": [
+          "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "per"
+      ],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T1-beras-v1",
+      "module": "M7",
+      "type": "T1",
+      "context": "personal",
+      "context_level": "K-A",
+      "cognitive_level": "pemahaman",
+      "title": "Membeli Beras",
+      "text": "Harga beras di warung Bu Sari Rp14.000 per kg. Nadia membeli 5 kg beras. Berapa yang harus dibayar Nadia?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 32,
+            "end": 38
+          },
+          {
+            "start": 61,
+            "end": 62
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 105
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "berat beras",
+            "unit": "kg"
+          },
+          "y": {
+            "meaning": "harga",
+            "unit": "rupiah"
+          },
+          "m": "14000",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "predict",
+          "x": "5",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "predict",
+            "value": "70000",
+            "unit": "rupiah",
+            "display": "Rp70.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Laju: Rp14.000 per kg",
+              "Ditanya: harga saat berat beras 5 kg"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = berat beras (kg), y = harga (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Harga bergantung pada berat beras.",
+              "x = berat beras (kg), y = harga (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp14.000 per kg.",
+            "latex": null,
+            "micro_steps": [
+              "m = 14.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan harga untuk setiap 1 kg.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 14.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah harga saat berat beras = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 14.000x",
+            "latex": "y = 14{.}000x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 14.000x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 5 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 14.000x",
+              "y = 14.000 × 5",
+              "y = 70.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 70.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Harga saat berat beras 5 kg adalah Rp70.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 14000x"
+        ],
+        "interpretation": [
+          "Harga saat berat beras 5 kg adalah Rp70.000."
+        ],
+        "reasonableness": [
+          "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "per"
+      ],
+      "variant_of": "WP-T1-beras"
+    },
+    {
+      "id": "WP-T1-beras-v2",
+      "module": "M7",
+      "type": "T1",
+      "context": "personal",
+      "context_level": "K-A",
+      "cognitive_level": "pemahaman",
+      "title": "Membeli Beras",
+      "text": "Harga beras di warung Bu Sari Rp14.000 per kg. Nadia membeli 4 kg beras. Berapa yang harus dibayar Nadia?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 32,
+            "end": 38
+          },
+          {
+            "start": 61,
+            "end": 62
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 105
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "berat beras",
+            "unit": "kg"
+          },
+          "y": {
+            "meaning": "harga",
+            "unit": "rupiah"
+          },
+          "m": "14000",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "predict",
+          "x": "4",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "predict",
+            "value": "56000",
+            "unit": "rupiah",
+            "display": "Rp56.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Laju: Rp14.000 per kg",
+              "Ditanya: harga saat berat beras 4 kg"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = berat beras (kg), y = harga (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Harga bergantung pada berat beras.",
+              "x = berat beras (kg), y = harga (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp14.000 per kg.",
+            "latex": null,
+            "micro_steps": [
+              "m = 14.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan harga untuk setiap 1 kg.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 14.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah harga saat berat beras = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 14.000x",
+            "latex": "y = 14{.}000x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 14.000x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 4 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 14.000x",
+              "y = 14.000 × 4",
+              "y = 56.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 56.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Harga saat berat beras 4 kg adalah Rp56.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 14000x"
+        ],
+        "interpretation": [
+          "Harga saat berat beras 4 kg adalah Rp56.000."
+        ],
+        "reasonableness": [
+          "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "per"
+      ],
+      "variant_of": "WP-T1-beras"
+    },
+    {
+      "id": "WP-T1-beras-v3",
+      "module": "M7",
+      "type": "T1",
+      "context": "personal",
+      "context_level": "K-A",
+      "cognitive_level": "pemahaman",
+      "title": "Membeli Beras",
+      "text": "Harga beras di warung Bu Sari Rp15.000 per kg. Nadia membeli 5 kg beras. Berapa yang harus dibayar Nadia?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 32,
+            "end": 38
+          },
+          {
+            "start": 61,
+            "end": 62
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 105
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "berat beras",
+            "unit": "kg"
+          },
+          "y": {
+            "meaning": "harga",
+            "unit": "rupiah"
+          },
+          "m": "15000",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "predict",
+          "x": "5",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "predict",
+            "value": "75000",
+            "unit": "rupiah",
+            "display": "Rp75.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Laju: Rp15.000 per kg",
+              "Ditanya: harga saat berat beras 5 kg"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = berat beras (kg), y = harga (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Harga bergantung pada berat beras.",
+              "x = berat beras (kg), y = harga (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp15.000 per kg.",
+            "latex": null,
+            "micro_steps": [
+              "m = 15.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan harga untuk setiap 1 kg.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 15.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah harga saat berat beras = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 15.000x",
+            "latex": "y = 15{.}000x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 15.000x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 5 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 15.000x",
+              "y = 15.000 × 5",
+              "y = 75.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 75.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Harga saat berat beras 5 kg adalah Rp75.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 15000x"
+        ],
+        "interpretation": [
+          "Harga saat berat beras 5 kg adalah Rp75.000."
+        ],
+        "reasonableness": [
+          "Jika berat beras = 0, maka harga = Rp0. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "per"
+      ],
+      "variant_of": "WP-T1-beras"
+    },
+    {
+      "id": "WP-T2-internet",
+      "module": "M7",
+      "type": "T2",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Langganan Internet Rumah",
+      "text": "Biaya pemasangan internet rumah Rp250.000. Setiap bulan pelanggan membayar Rp150.000. Tuliskan model biaya langganan. Berapa total biaya setelah 6 bulan?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 34,
+            "end": 41
+          },
+          {
+            "start": 77,
+            "end": 84
+          },
+          {
+            "start": 145,
+            "end": 146
+          }
+        ],
+        "asked": [
+          {
+            "start": 86,
+            "end": 117
+          },
+          {
+            "start": 118,
+            "end": 153
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "lama berlangganan",
+            "unit": "bulan"
+          },
+          "y": {
+            "meaning": "total biaya",
+            "unit": "rupiah"
+          },
+          "m": "150000",
+          "c": "250000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "build_model",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "6",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "build_model",
+            "value": null,
+            "unit": null,
+            "display": "y = 150.000x + 250.000"
+          },
+          {
+            "key": "t2",
+            "task": "predict",
+            "value": "1150000",
+            "unit": "rupiah",
+            "display": "Rp1.150.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp250.000",
+              "Laju: Rp150.000 per bulan",
+              "Ditanya: model matematika",
+              "Ditanya: total biaya saat lama berlangganan 6 bulan"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = lama berlangganan (bulan), y = total biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Total biaya bergantung pada lama berlangganan.",
+              "x = lama berlangganan (bulan), y = total biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp150.000 per bulan.",
+            "latex": null,
+            "micro_steps": [
+              "m = 150.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan total biaya untuk setiap 1 bulan.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 150.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp250.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 250.000"
+            ],
+            "hints": [
+              "Nilai awal adalah total biaya saat lama berlangganan = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 250.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 150.000x + 250.000",
+            "latex": "y = 150{.}000x + 250{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 150.000x + 250.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 6 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 150.000x + 250.000",
+              "y = 150.000 × 6 + 250.000",
+              "y = 900.000 + 250.000",
+              "y = 1.150.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 1.150.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Model: y = 150.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+              "Total biaya saat lama berlangganan 6 bulan adalah Rp1.150.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 150000x + 250000",
+          "y = 250000 + 150000x"
+        ],
+        "interpretation": [
+          "Model: y = 150.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+          "Total biaya saat lama berlangganan 6 bulan adalah Rp1.150.000."
+        ],
+        "reasonableness": [
+          "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": "Mengapa biaya pada bulan ke-0 tidak sama dengan Rp0?",
+      "glossary": [
+        "biaya pemasangan"
+      ],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T2-internet-v1",
+      "module": "M7",
+      "type": "T2",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Langganan Internet Rumah",
+      "text": "Biaya pemasangan internet rumah Rp200.000. Setiap bulan pelanggan membayar Rp150.000. Tuliskan model biaya langganan. Berapa total biaya setelah 12 bulan?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 34,
+            "end": 41
+          },
+          {
+            "start": 77,
+            "end": 84
+          },
+          {
+            "start": 145,
+            "end": 147
+          }
+        ],
+        "asked": [
+          {
+            "start": 86,
+            "end": 117
+          },
+          {
+            "start": 118,
+            "end": 154
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "lama berlangganan",
+            "unit": "bulan"
+          },
+          "y": {
+            "meaning": "total biaya",
+            "unit": "rupiah"
+          },
+          "m": "150000",
+          "c": "200000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "build_model",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "12",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "build_model",
+            "value": null,
+            "unit": null,
+            "display": "y = 150.000x + 200.000"
+          },
+          {
+            "key": "t2",
+            "task": "predict",
+            "value": "2000000",
+            "unit": "rupiah",
+            "display": "Rp2.000.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp200.000",
+              "Laju: Rp150.000 per bulan",
+              "Ditanya: model matematika",
+              "Ditanya: total biaya saat lama berlangganan 12 bulan"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = lama berlangganan (bulan), y = total biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Total biaya bergantung pada lama berlangganan.",
+              "x = lama berlangganan (bulan), y = total biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp150.000 per bulan.",
+            "latex": null,
+            "micro_steps": [
+              "m = 150.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan total biaya untuk setiap 1 bulan.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 150.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp200.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 200.000"
+            ],
+            "hints": [
+              "Nilai awal adalah total biaya saat lama berlangganan = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 200.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 150.000x + 200.000",
+            "latex": "y = 150{.}000x + 200{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 150.000x + 200.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 12 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 150.000x + 200.000",
+              "y = 150.000 × 12 + 200.000",
+              "y = 1.800.000 + 200.000",
+              "y = 2.000.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 2.000.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Model: y = 150.000x + 200.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+              "Total biaya saat lama berlangganan 12 bulan adalah Rp2.000.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika lama berlangganan = 0, maka total biaya = Rp200.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 150000x + 200000",
+          "y = 200000 + 150000x"
+        ],
+        "interpretation": [
+          "Model: y = 150.000x + 200.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+          "Total biaya saat lama berlangganan 12 bulan adalah Rp2.000.000."
+        ],
+        "reasonableness": [
+          "Jika lama berlangganan = 0, maka total biaya = Rp200.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": "Mengapa biaya pada bulan ke-0 tidak sama dengan Rp0?",
+      "glossary": [
+        "biaya pemasangan"
+      ],
+      "variant_of": "WP-T2-internet"
+    },
+    {
+      "id": "WP-T2-internet-v2",
+      "module": "M7",
+      "type": "T2",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Langganan Internet Rumah",
+      "text": "Biaya pemasangan internet rumah Rp250.000. Setiap bulan pelanggan membayar Rp175.000. Tuliskan model biaya langganan. Berapa total biaya setelah 6 bulan?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 34,
+            "end": 41
+          },
+          {
+            "start": 77,
+            "end": 84
+          },
+          {
+            "start": 145,
+            "end": 146
+          }
+        ],
+        "asked": [
+          {
+            "start": 86,
+            "end": 117
+          },
+          {
+            "start": 118,
+            "end": 153
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "lama berlangganan",
+            "unit": "bulan"
+          },
+          "y": {
+            "meaning": "total biaya",
+            "unit": "rupiah"
+          },
+          "m": "175000",
+          "c": "250000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "build_model",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "6",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "build_model",
+            "value": null,
+            "unit": null,
+            "display": "y = 175.000x + 250.000"
+          },
+          {
+            "key": "t2",
+            "task": "predict",
+            "value": "1300000",
+            "unit": "rupiah",
+            "display": "Rp1.300.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp250.000",
+              "Laju: Rp175.000 per bulan",
+              "Ditanya: model matematika",
+              "Ditanya: total biaya saat lama berlangganan 6 bulan"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = lama berlangganan (bulan), y = total biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Total biaya bergantung pada lama berlangganan.",
+              "x = lama berlangganan (bulan), y = total biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp175.000 per bulan.",
+            "latex": null,
+            "micro_steps": [
+              "m = 175.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan total biaya untuk setiap 1 bulan.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 175.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp250.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 250.000"
+            ],
+            "hints": [
+              "Nilai awal adalah total biaya saat lama berlangganan = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 250.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 175.000x + 250.000",
+            "latex": "y = 175{.}000x + 250{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 175.000x + 250.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 6 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 175.000x + 250.000",
+              "y = 175.000 × 6 + 250.000",
+              "y = 1.050.000 + 250.000",
+              "y = 1.300.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 1.300.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Model: y = 175.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+              "Total biaya saat lama berlangganan 6 bulan adalah Rp1.300.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 175000x + 250000",
+          "y = 250000 + 175000x"
+        ],
+        "interpretation": [
+          "Model: y = 175.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+          "Total biaya saat lama berlangganan 6 bulan adalah Rp1.300.000."
+        ],
+        "reasonableness": [
+          "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": "Mengapa biaya pada bulan ke-0 tidak sama dengan Rp0?",
+      "glossary": [
+        "biaya pemasangan"
+      ],
+      "variant_of": "WP-T2-internet"
+    },
+    {
+      "id": "WP-T2-internet-v3",
+      "module": "M7",
+      "type": "T2",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Langganan Internet Rumah",
+      "text": "Biaya pemasangan internet rumah Rp250.000. Setiap bulan pelanggan membayar Rp100.000. Tuliskan model biaya langganan. Berapa total biaya setelah 6 bulan?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 34,
+            "end": 41
+          },
+          {
+            "start": 77,
+            "end": 84
+          },
+          {
+            "start": 145,
+            "end": 146
+          }
+        ],
+        "asked": [
+          {
+            "start": 86,
+            "end": 117
+          },
+          {
+            "start": 118,
+            "end": 153
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "lama berlangganan",
+            "unit": "bulan"
+          },
+          "y": {
+            "meaning": "total biaya",
+            "unit": "rupiah"
+          },
+          "m": "100000",
+          "c": "250000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "build_model",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "6",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "build_model",
+            "value": null,
+            "unit": null,
+            "display": "y = 100.000x + 250.000"
+          },
+          {
+            "key": "t2",
+            "task": "predict",
+            "value": "850000",
+            "unit": "rupiah",
+            "display": "Rp850.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp250.000",
+              "Laju: Rp100.000 per bulan",
+              "Ditanya: model matematika",
+              "Ditanya: total biaya saat lama berlangganan 6 bulan"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = lama berlangganan (bulan), y = total biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Total biaya bergantung pada lama berlangganan.",
+              "x = lama berlangganan (bulan), y = total biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp100.000 per bulan.",
+            "latex": null,
+            "micro_steps": [
+              "m = 100.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan total biaya untuk setiap 1 bulan.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 100.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp250.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 250.000"
+            ],
+            "hints": [
+              "Nilai awal adalah total biaya saat lama berlangganan = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 250.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 100.000x + 250.000",
+            "latex": "y = 100{.}000x + 250{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 100.000x + 250.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 6 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 100.000x + 250.000",
+              "y = 100.000 × 6 + 250.000",
+              "y = 600.000 + 250.000",
+              "y = 850.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 850.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Model: y = 100.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+              "Total biaya saat lama berlangganan 6 bulan adalah Rp850.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 100000x + 250000",
+          "y = 250000 + 100000x"
+        ],
+        "interpretation": [
+          "Model: y = 100.000x + 250.000, dengan x = lama berlangganan (bulan) dan y = total biaya (rupiah).",
+          "Total biaya saat lama berlangganan 6 bulan adalah Rp850.000."
+        ],
+        "reasonableness": [
+          "Jika lama berlangganan = 0, maka total biaya = Rp250.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": "Mengapa biaya pada bulan ke-0 tidak sama dengan Rp0?",
+      "glossary": [
+        "biaya pemasangan"
+      ],
+      "variant_of": "WP-T2-internet"
+    },
+    {
+      "id": "WP-T3-cetak-foto",
+      "module": "M7",
+      "type": "T3",
+      "context": "sosial-budaya",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Mencetak Foto Kelas",
+      "text": "Biaya mencetak 10 lembar foto Rp35.000, sedangkan biaya mencetak 25 lembar foto Rp72.500. Biaya ini terdiri atas biaya tetap dan biaya per lembar. Berapa biaya tetap dan biaya per lembar? Berapa biaya mencetak 40 lembar foto?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 15,
+            "end": 17
+          },
+          {
+            "start": 32,
+            "end": 38
+          },
+          {
+            "start": 65,
+            "end": 67
+          },
+          {
+            "start": 82,
+            "end": 88
+          },
+          {
+            "start": 210,
+            "end": 212
+          }
+        ],
+        "asked": [
+          {
+            "start": 147,
+            "end": 187
+          },
+          {
+            "start": 188,
+            "end": 225
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "banyak foto",
+            "unit": "lembar"
+          },
+          "y": {
+            "meaning": "biaya",
+            "unit": "rupiah"
+          },
+          "m": "2500",
+          "c": "10000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "points",
+          "points": [
+            [
+              "10",
+              "35000"
+            ],
+            [
+              "25",
+              "72500"
+            ]
+          ],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "find_initial",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "find_rate",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "40",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "find_initial",
+            "value": "10000",
+            "unit": "rupiah",
+            "display": "Rp10.000"
+          },
+          {
+            "key": "t2",
+            "task": "find_rate",
+            "value": "2500",
+            "unit": "rupiah/lembar",
+            "display": "Rp2.500 per lembar"
+          },
+          {
+            "key": "t3",
+            "task": "predict",
+            "value": "110000",
+            "unit": "rupiah",
+            "display": "Rp110.000"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "10 lembar → Rp35.000",
+              "25 lembar → Rp72.500",
+              "Ditanya: nilai awal (c)",
+              "Ditanya: laju (m)",
+              "Ditanya: biaya saat banyak foto 40 lembar"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = banyak foto (lembar), y = biaya (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Biaya bergantung pada banyak foto.",
+              "x = banyak foto (lembar), y = biaya (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Hitung laju (m) dari dua data.",
+            "latex": null,
+            "micro_steps": [
+              "m = (y₂ − y₁) / (x₂ − x₁)",
+              "m = (72.500 − 35.000) / (25 − 10)",
+              "m = 37.500 / 15",
+              "m = 2.500"
+            ],
+            "hints": [
+              "Laju adalah perubahan biaya untuk setiap 1 lembar.",
+              "Laju = selisih y dibagi selisih x dari dua data.",
+              "m = 2.500"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Hitung nilai awal (c), yaitu biaya saat x = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = y₁ − m × x₁",
+              "c = 35.000 − 2.500 × 10",
+              "c = 35.000 − 25.000",
+              "c = 10.000"
+            ],
+            "hints": [
+              "Nilai awal adalah biaya saat banyak foto = 0.",
+              "Pakai salah satu data: c = y − m × x.",
+              "c = 10.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 2.500x + 10.000",
+            "latex": "y = 2{.}500x + 10{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 2.500x + 10.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 40 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 2.500x + 10.000",
+              "y = 2.500 × 40 + 10.000",
+              "y = 100.000 + 10.000",
+              "y = 110.000"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 110.000"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awalnya Rp10.000, yaitu biaya saat banyak foto = 0.",
+              "Lajunya Rp2.500 per lembar: setiap banyak foto bertambah 1 lembar, biaya bertambah Rp2.500.",
+              "Biaya saat banyak foto 40 lembar adalah Rp110.000."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika banyak foto = 0, maka biaya = Rp10.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 2500x + 10000",
+          "y = 10000 + 2500x"
+        ],
+        "interpretation": [
+          "Nilai awalnya Rp10.000, yaitu biaya saat banyak foto = 0.",
+          "Lajunya Rp2.500 per lembar: setiap banyak foto bertambah 1 lembar, biaya bertambah Rp2.500.",
+          "Biaya saat banyak foto 40 lembar adalah Rp110.000."
+        ],
+        "reasonableness": [
+          "Jika banyak foto = 0, maka biaya = Rp10.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "biaya tetap"
+      ],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T4-cabai",
+      "module": "M7",
+      "type": "T4",
+      "context": "saintifik",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Tanaman Cabai Rawit",
+      "text": "Siswa kelas 8 mengukur tinggi tanaman cabai setiap minggu. Hasilnya ada pada tabel. Jika pertumbuhannya tetap, berapa tinggi tanaman pada minggu ke-8?",
+      "stimulus": {
+        "kind": "table",
+        "model": 0,
+        "rows": [
+          [
+            "0",
+            "5"
+          ],
+          [
+            "1",
+            "7"
+          ],
+          [
+            "2",
+            "9"
+          ],
+          [
+            "3",
+            "11"
+          ]
+        ]
+      },
+      "annotations": {
+        "known": [
+          {
+            "start": 148,
+            "end": 149
+          }
+        ],
+        "asked": [
+          {
+            "start": 84,
+            "end": 150
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "minggu"
+          },
+          "y": {
+            "meaning": "tinggi tanaman",
+            "unit": "cm"
+          },
+          "m": "2",
+          "c": "5",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "find_rate",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "build_model",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "8",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "find_rate",
+            "value": "2",
+            "unit": "cm/minggu",
+            "display": "2 cm per minggu"
+          },
+          {
+            "key": "t2",
+            "task": "build_model",
+            "value": null,
+            "unit": null,
+            "display": "y = 2x + 5"
+          },
+          {
+            "key": "t3",
+            "task": "predict",
+            "value": "21",
+            "unit": "cm",
+            "display": "21 cm"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: 5 cm",
+              "Laju: 2 cm per minggu",
+              "Ditanya: laju (m)",
+              "Ditanya: model matematika",
+              "Ditanya: tinggi tanaman saat waktu 8 minggu"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (minggu), y = tinggi tanaman (cm).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Tinggi tanaman bergantung pada waktu.",
+              "x = waktu (minggu), y = tinggi tanaman (cm)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): 2 cm per minggu.",
+            "latex": null,
+            "micro_steps": [
+              "m = 2"
+            ],
+            "hints": [
+              "Laju adalah perubahan tinggi tanaman untuk setiap 1 minggu.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 2"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = 5 cm.",
+            "latex": null,
+            "micro_steps": [
+              "c = 5"
+            ],
+            "hints": [
+              "Nilai awal adalah tinggi tanaman saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 5"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 2x + 5",
+            "latex": "y = 2x + 5",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 2x + 5"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 8 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 2x + 5",
+              "y = 2 × 8 + 5",
+              "y = 16 + 5",
+              "y = 21"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 21"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Lajunya 2 cm per minggu: setiap waktu bertambah 1 minggu, tinggi tanaman bertambah 2 cm.",
+              "Model: y = 2x + 5, dengan x = waktu (minggu) dan y = tinggi tanaman (cm).",
+              "Tinggi tanaman saat waktu 8 minggu adalah 21 cm."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika waktu = 0, maka tinggi tanaman = 5 cm. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 2x + 5",
+          "y = 5 + 2x"
+        ],
+        "interpretation": [
+          "Lajunya 2 cm per minggu: setiap waktu bertambah 1 minggu, tinggi tanaman bertambah 2 cm.",
+          "Model: y = 2x + 5, dengan x = waktu (minggu) dan y = tinggi tanaman (cm).",
+          "Tinggi tanaman saat waktu 8 minggu adalah 21 cm."
+        ],
+        "reasonableness": [
+          "Jika waktu = 0, maka tinggi tanaman = 5 cm. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T5-bus",
+      "module": "M7",
+      "type": "T5",
+      "context": "sosial-budaya",
+      "context_level": "K-C",
+      "cognitive_level": "penerapan",
+      "title": "Perjalanan Bus Antarkota",
+      "text": "Grafik menunjukkan jarak bus dari Terminal Kampung Rambutan terhadap waktu perjalanan. Bus berangkat pukul 06.00 dengan tiket seharga Rp85.000. Berapa kecepatan bus? Berapa jarak bus dari terminal setelah 3 jam?",
+      "stimulus": {
+        "kind": "graph",
+        "model": 0,
+        "rows": [
+          [
+            "0",
+            "15"
+          ],
+          [
+            "1",
+            "75"
+          ],
+          [
+            "2",
+            "135"
+          ],
+          [
+            "4",
+            "255"
+          ]
+        ]
+      },
+      "annotations": {
+        "known": [
+          {
+            "start": 205,
+            "end": 206
+          }
+        ],
+        "asked": [
+          {
+            "start": 144,
+            "end": 165
+          },
+          {
+            "start": 166,
+            "end": 211
+          }
+        ],
+        "distractor": [
+          {
+            "start": 101,
+            "end": 112
+          },
+          {
+            "start": 134,
+            "end": 142
+          }
+        ]
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu perjalanan",
+            "unit": "jam"
+          },
+          "y": {
+            "meaning": "jarak dari terminal",
+            "unit": "km"
+          },
+          "m": "60",
+          "c": "15",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "find_rate",
+          "x": null,
+          "y": null,
+          "model": 0
+        },
+        {
+          "kind": "predict",
+          "x": "3",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "find_rate",
+            "value": "60",
+            "unit": "km/jam",
+            "display": "60 km per jam"
+          },
+          {
+            "key": "t2",
+            "task": "predict",
+            "value": "195",
+            "unit": "km",
+            "display": "195 km"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: 15 km",
+              "Laju: 60 km per jam",
+              "Ditanya: laju (m)",
+              "Ditanya: jarak dari terminal saat waktu perjalanan 3 jam"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu perjalanan (jam), y = jarak dari terminal (km).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Jarak dari terminal bergantung pada waktu perjalanan.",
+              "x = waktu perjalanan (jam), y = jarak dari terminal (km)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): 60 km per jam.",
+            "latex": null,
+            "micro_steps": [
+              "m = 60"
+            ],
+            "hints": [
+              "Laju adalah perubahan jarak dari terminal untuk setiap 1 jam.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 60"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = 15 km.",
+            "latex": null,
+            "micro_steps": [
+              "c = 15"
+            ],
+            "hints": [
+              "Nilai awal adalah jarak dari terminal saat waktu perjalanan = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 15"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 60x + 15",
+            "latex": "y = 60x + 15",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 60x + 15"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 3 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = 60x + 15",
+              "y = 60 × 3 + 15",
+              "y = 180 + 15",
+              "y = 195"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 195"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Lajunya 60 km per jam: setiap waktu perjalanan bertambah 1 jam, jarak dari terminal bertambah 60 km.",
+              "Jarak dari terminal saat waktu perjalanan 3 jam adalah 195 km."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika waktu perjalanan = 0, maka jarak dari terminal = 15 km. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 60x + 15",
+          "y = 15 + 60x"
+        ],
+        "interpretation": [
+          "Lajunya 60 km per jam: setiap waktu perjalanan bertambah 1 jam, jarak dari terminal bertambah 60 km.",
+          "Jarak dari terminal saat waktu perjalanan 3 jam adalah 195 km."
+        ],
+        "reasonableness": [
+          "Jika waktu perjalanan = 0, maka jarak dari terminal = 15 km. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T6-kuota",
+      "module": "M7",
+      "type": "T6",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Kuota Internet Andi",
+      "text": "Kuota internet Andi 12 GB. Setiap hari terpakai 0,5 GB. Setelah berapa hari kuotanya habis?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 20,
+            "end": 22
+          },
+          {
+            "start": 48,
+            "end": 51
+          }
+        ],
+        "asked": [
+          {
+            "start": 56,
+            "end": 91
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "hari"
+          },
+          "y": {
+            "meaning": "sisa kuota",
+            "unit": "GB"
+          },
+          "m": "-1/2",
+          "c": "12",
+          "domain_min": "0",
+          "domain_max": "24",
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "inverse",
+          "x": null,
+          "y": "0",
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "inverse",
+            "value": "24",
+            "unit": "hari",
+            "display": "24 hari"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: 12 GB",
+              "Laju: berkurang 0,5 GB per hari",
+              "Ditanya: waktu saat sisa kuota 0 GB"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (hari), y = sisa kuota (GB).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Sisa kuota bergantung pada waktu.",
+              "x = waktu (hari), y = sisa kuota (GB)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): berkurang 0,5 GB per hari.",
+            "latex": null,
+            "micro_steps": [
+              "Sisa kuota berkurang, jadi lajunya negatif.",
+              "m = -0,5"
+            ],
+            "hints": [
+              "Laju adalah perubahan sisa kuota untuk setiap 1 hari.",
+              "Sisa kuota berkurang, jadi lajunya negatif.",
+              "m = -0,5"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = 12 GB.",
+            "latex": null,
+            "micro_steps": [
+              "c = 12"
+            ],
+            "hints": [
+              "Nilai awal adalah sisa kuota saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 12"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = -0,5x + 12",
+            "latex": "y = -\\frac{1}{2}x + 12",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = -0,5x + 12"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Cari x saat y = 0.",
+            "latex": null,
+            "micro_steps": [
+              "0 = -0,5x + 12",
+              "0 − 12 = -0,5x",
+              "-12 = -0,5x",
+              "x = -12 ÷ (-0,5)",
+              "x = 24"
+            ],
+            "hints": [
+              "y sudah diketahui. Cari x yang membuat model bernilai y itu.",
+              "Pindahkan nilai awal ke ruas kiri, lalu bagi dengan laju.",
+              "x = 24"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Sisa kuota menjadi 0 saat waktu 24 hari."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: (-0,5) × 24 + 12 = 0 ✔",
+              "Jika waktu = 0, maka sisa kuota = 12 GB. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = -(1/2)x + 12",
+          "y = 12 - (1/2)x"
+        ],
+        "interpretation": [
+          "Sisa kuota menjadi 0 saat waktu 24 hari."
+        ],
+        "reasonableness": [
+          "Cek: (-0,5) × 24 + 12 = 0 ✔",
+          "Jika waktu = 0, maka sisa kuota = 12 GB. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [
+        "kuota"
+      ],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T6-suhu",
+      "module": "M7",
+      "type": "T6",
+      "context": "saintifik",
+      "context_level": "K-C",
+      "cognitive_level": "penalaran",
+      "title": "Suhu Malam di Bandung",
+      "text": "Pukul 18.00 suhu udara di Bandung 28 °C. Setelah itu suhu turun 1,5 °C setiap jam. Berapa suhu udara setelah 4 jam?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 34,
+            "end": 36
+          },
+          {
+            "start": 64,
+            "end": 67
+          },
+          {
+            "start": 109,
+            "end": 110
+          }
+        ],
+        "asked": [
+          {
+            "start": 83,
+            "end": 115
+          }
+        ],
+        "distractor": [
+          {
+            "start": 0,
+            "end": 11
+          }
+        ]
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "jam"
+          },
+          "y": {
+            "meaning": "suhu",
+            "unit": "°C"
+          },
+          "m": "-3/2",
+          "c": "28",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "predict",
+          "x": "4",
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "predict",
+            "value": "22",
+            "unit": "°C",
+            "display": "22 °C"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: 28 °C",
+              "Laju: berkurang 1,5 °C per jam",
+              "Ditanya: suhu saat waktu 4 jam"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (jam), y = suhu (°C).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Suhu bergantung pada waktu.",
+              "x = waktu (jam), y = suhu (°C)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): berkurang 1,5 °C per jam.",
+            "latex": null,
+            "micro_steps": [
+              "Suhu berkurang, jadi lajunya negatif.",
+              "m = -1,5"
+            ],
+            "hints": [
+              "Laju adalah perubahan suhu untuk setiap 1 jam.",
+              "Suhu berkurang, jadi lajunya negatif.",
+              "m = -1,5"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = 28 °C.",
+            "latex": null,
+            "micro_steps": [
+              "c = 28"
+            ],
+            "hints": [
+              "Nilai awal adalah suhu saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 28"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = -1,5x + 28",
+            "latex": "y = -\\frac{3}{2}x + 28",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = -1,5x + 28"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Substitusi x = 4 ke model.",
+            "latex": null,
+            "micro_steps": [
+              "y = -1,5x + 28",
+              "y = (-1,5) × 4 + 28",
+              "y = -6 + 28",
+              "y = 22"
+            ],
+            "hints": [
+              "x sudah diketahui. Substitusikan ke model.",
+              "Kalikan dulu, lalu tambahkan nilai awal.",
+              "y = 22"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Suhu saat waktu 4 jam adalah 22 °C."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Jika waktu = 0, maka suhu = 28 °C. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = -(3/2)x + 28",
+          "y = 28 - (3/2)x"
+        ],
+        "interpretation": [
+          "Suhu saat waktu 4 jam adalah 22 °C."
+        ],
+        "reasonableness": [
+          "Jika waktu = 0, maka suhu = 28 °C. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T7-ramp",
+      "module": "M7",
+      "type": "T7",
+      "context": "sosial-budaya",
+      "context_level": "K-C",
+      "cognitive_level": "penalaran",
+      "title": "Ramp Kursi Roda di Sekolah",
+      "text": "Sekolah membangun ramp kursi roda yang naik setinggi 50 cm dengan jarak mendatar 600 cm. Berapa kemiringan ramp tersebut? Aturan bangunan meminta kemiringan ramp paling besar 1/12. Apakah ramp ini memenuhi aturan?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 53,
+            "end": 55
+          },
+          {
+            "start": 81,
+            "end": 84
+          }
+        ],
+        "asked": [
+          {
+            "start": 89,
+            "end": 121
+          },
+          {
+            "start": 181,
+            "end": 213
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "jarak mendatar",
+            "unit": "cm"
+          },
+          "y": {
+            "meaning": "ketinggian",
+            "unit": "cm"
+          },
+          "m": "1/12",
+          "c": "0",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "rise_run",
+          "points": [],
+          "rise": "50",
+          "run": "600"
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "steepness",
+          "x": null,
+          "y": null,
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "steepness",
+            "value": "1/12",
+            "unit": null,
+            "display": "1/12"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Tinggi (naik): 50 cm",
+              "Jarak mendatar: 600 cm",
+              "Ditanya: kemiringan"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = jarak mendatar (cm), y = ketinggian (cm).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Ketinggian bergantung pada jarak mendatar.",
+              "x = jarak mendatar (cm), y = ketinggian (cm)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Hitung kemiringan (m).",
+            "latex": null,
+            "micro_steps": [
+              "m = tinggi (naik) / jarak mendatar",
+              "m = 50 / 600",
+              "m = 1/12"
+            ],
+            "hints": [
+              "Laju adalah perubahan ketinggian untuk setiap 1 cm.",
+              "Kemiringan = tinggi (naik) dibagi jarak mendatar.",
+              "m = 1/12"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tidak ada nilai awal, jadi c = 0.",
+            "latex": null,
+            "micro_steps": [
+              "c = 0"
+            ],
+            "hints": [
+              "Nilai awal adalah ketinggian saat jarak mendatar = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 0"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = (1/12)x",
+            "latex": "y = \\frac{1}{12}x",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = (1/12)x"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Nyatakan kemiringan sebagai pecahan dan persen.",
+            "latex": null,
+            "micro_steps": [
+              "Kemiringan = 1/12",
+              "Persen kemiringan = 1/12 × 100% = ≈ 8,33%"
+            ],
+            "hints": [
+              "Kemiringan = tinggi dibagi jarak mendatar.",
+              "Untuk persen, kalikan dengan 100%.",
+              "≈ 8,33%"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Kemiringannya 1/12, atau sekitar 8,33%."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = (1/12)x"
+        ],
+        "interpretation": [
+          "Kemiringannya 1/12, atau sekitar 8,33%."
+        ],
+        "reasonableness": []
+      },
+      "reflection_prompt": "Mengapa ramp untuk kursi roda tidak boleh terlalu curam?",
+      "glossary": [
+        "kemiringan"
+      ],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T8-tabungan",
+      "module": "M7",
+      "type": "T8",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Tabungan Study Tour",
+      "text": "Rani sudah punya tabungan Rp150.000. Setiap minggu ia menabung Rp25.000. Setelah berapa minggu tabungannya menjadi Rp400.000?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 28,
+            "end": 35
+          },
+          {
+            "start": 65,
+            "end": 71
+          },
+          {
+            "start": 117,
+            "end": 124
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 125
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "minggu"
+          },
+          "y": {
+            "meaning": "jumlah tabungan",
+            "unit": "rupiah"
+          },
+          "m": "25000",
+          "c": "150000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "inverse",
+          "x": null,
+          "y": "400000",
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "inverse",
+            "value": "10",
+            "unit": "minggu",
+            "display": "10 minggu"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp150.000",
+              "Laju: Rp25.000 per minggu",
+              "Ditanya: waktu saat jumlah tabungan Rp400.000"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (minggu), y = jumlah tabungan (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Jumlah tabungan bergantung pada waktu.",
+              "x = waktu (minggu), y = jumlah tabungan (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp25.000 per minggu.",
+            "latex": null,
+            "micro_steps": [
+              "m = 25.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan jumlah tabungan untuk setiap 1 minggu.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 25.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp150.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 150.000"
+            ],
+            "hints": [
+              "Nilai awal adalah jumlah tabungan saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 150.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 25.000x + 150.000",
+            "latex": "y = 25{.}000x + 150{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 25.000x + 150.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Cari x saat y = 400.000.",
+            "latex": null,
+            "micro_steps": [
+              "400.000 = 25.000x + 150.000",
+              "400.000 − 150.000 = 25.000x",
+              "250.000 = 25.000x",
+              "x = 250.000 ÷ 25.000",
+              "x = 10"
+            ],
+            "hints": [
+              "y sudah diketahui. Cari x yang membuat model bernilai y itu.",
+              "Pindahkan nilai awal ke ruas kiri, lalu bagi dengan laju.",
+              "x = 10"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Jumlah tabungan mencapai Rp400.000 saat waktu 10 minggu."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: 25.000 × 10 + 150.000 = 400.000 ✔",
+              "Jika waktu = 0, maka jumlah tabungan = Rp150.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 25000x + 150000",
+          "y = 150000 + 25000x"
+        ],
+        "interpretation": [
+          "Jumlah tabungan mencapai Rp400.000 saat waktu 10 minggu."
+        ],
+        "reasonableness": [
+          "Cek: 25.000 × 10 + 150.000 = 400.000 ✔",
+          "Jika waktu = 0, maka jumlah tabungan = Rp150.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": null
+    },
+    {
+      "id": "WP-T8-tabungan-v1",
+      "module": "M7",
+      "type": "T8",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Tabungan Study Tour",
+      "text": "Rani sudah punya tabungan Rp200.000. Setiap minggu ia menabung Rp25.000. Setelah berapa minggu tabungannya menjadi Rp400.000?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 28,
+            "end": 35
+          },
+          {
+            "start": 65,
+            "end": 71
+          },
+          {
+            "start": 117,
+            "end": 124
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 125
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "minggu"
+          },
+          "y": {
+            "meaning": "jumlah tabungan",
+            "unit": "rupiah"
+          },
+          "m": "25000",
+          "c": "200000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "inverse",
+          "x": null,
+          "y": "400000",
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "inverse",
+            "value": "8",
+            "unit": "minggu",
+            "display": "8 minggu"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp200.000",
+              "Laju: Rp25.000 per minggu",
+              "Ditanya: waktu saat jumlah tabungan Rp400.000"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (minggu), y = jumlah tabungan (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Jumlah tabungan bergantung pada waktu.",
+              "x = waktu (minggu), y = jumlah tabungan (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp25.000 per minggu.",
+            "latex": null,
+            "micro_steps": [
+              "m = 25.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan jumlah tabungan untuk setiap 1 minggu.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 25.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp200.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 200.000"
+            ],
+            "hints": [
+              "Nilai awal adalah jumlah tabungan saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 200.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 25.000x + 200.000",
+            "latex": "y = 25{.}000x + 200{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 25.000x + 200.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Cari x saat y = 400.000.",
+            "latex": null,
+            "micro_steps": [
+              "400.000 = 25.000x + 200.000",
+              "400.000 − 200.000 = 25.000x",
+              "200.000 = 25.000x",
+              "x = 200.000 ÷ 25.000",
+              "x = 8"
+            ],
+            "hints": [
+              "y sudah diketahui. Cari x yang membuat model bernilai y itu.",
+              "Pindahkan nilai awal ke ruas kiri, lalu bagi dengan laju.",
+              "x = 8"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Jumlah tabungan mencapai Rp400.000 saat waktu 8 minggu."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: 25.000 × 8 + 200.000 = 400.000 ✔",
+              "Jika waktu = 0, maka jumlah tabungan = Rp200.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 25000x + 200000",
+          "y = 200000 + 25000x"
+        ],
+        "interpretation": [
+          "Jumlah tabungan mencapai Rp400.000 saat waktu 8 minggu."
+        ],
+        "reasonableness": [
+          "Cek: 25.000 × 8 + 200.000 = 400.000 ✔",
+          "Jika waktu = 0, maka jumlah tabungan = Rp200.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": "WP-T8-tabungan"
+    },
+    {
+      "id": "WP-T8-tabungan-v2",
+      "module": "M7",
+      "type": "T8",
+      "context": "personal",
+      "context_level": "K-B",
+      "cognitive_level": "penerapan",
+      "title": "Tabungan Study Tour",
+      "text": "Rani sudah punya tabungan Rp150.000. Setiap minggu ia menabung Rp50.000. Setelah berapa minggu tabungannya menjadi Rp400.000?",
+      "stimulus": null,
+      "annotations": {
+        "known": [
+          {
+            "start": 28,
+            "end": 35
+          },
+          {
+            "start": 65,
+            "end": 71
+          },
+          {
+            "start": 117,
+            "end": 124
+          }
+        ],
+        "asked": [
+          {
+            "start": 73,
+            "end": 125
+          }
+        ],
+        "distractor": []
+      },
+      "models": [
+        {
+          "name": null,
+          "x": {
+            "meaning": "waktu",
+            "unit": "minggu"
+          },
+          "y": {
+            "meaning": "jumlah tabungan",
+            "unit": "rupiah"
+          },
+          "m": "50000",
+          "c": "150000",
+          "domain_min": "0",
+          "domain_max": null,
+          "source": "direct",
+          "points": [],
+          "rise": null,
+          "run": null
+        }
+      ],
+      "tasks": [
+        {
+          "kind": "inverse",
+          "x": null,
+          "y": "400000",
+          "model": 0
+        }
+      ],
+      "solution": {
+        "answers": [
+          {
+            "key": "t1",
+            "task": "inverse",
+            "value": "5",
+            "unit": "minggu",
+            "display": "5 minggu"
+          }
+        ],
+        "steps": [
+          {
+            "stage": "pahami",
+            "text": "Pahami soal: cari apa yang ditanyakan dan angka yang penting.",
+            "latex": null,
+            "micro_steps": [
+              "Nilai awal: Rp150.000",
+              "Laju: Rp50.000 per minggu",
+              "Ditanya: waktu saat jumlah tabungan Rp400.000"
+            ],
+            "hints": [
+              "Baca kalimat pertanyaannya dulu. Apa yang dicari?",
+              "Garis bawahi angka yang punya satuan. Mana yang dipakai untuk menjawab?",
+              "Kata 'setiap' atau 'per' biasanya menunjukkan laju. Kata 'awal' biasanya nilai awal."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan variabel: x = waktu (minggu), y = jumlah tabungan (rupiah).",
+            "latex": null,
+            "micro_steps": [],
+            "hints": [
+              "Mana yang mempengaruhi (x)? Mana yang dipengaruhi (y)?",
+              "Jumlah tabungan bergantung pada waktu.",
+              "x = waktu (minggu), y = jumlah tabungan (rupiah)."
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Tentukan laju (m): Rp50.000 per minggu.",
+            "latex": null,
+            "micro_steps": [
+              "m = 50.000"
+            ],
+            "hints": [
+              "Laju adalah perubahan jumlah tabungan untuk setiap 1 minggu.",
+              "Cari angka yang disertai kata 'setiap' atau 'per'.",
+              "m = 50.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Nilai awal (c) = Rp150.000.",
+            "latex": null,
+            "micro_steps": [
+              "c = 150.000"
+            ],
+            "hints": [
+              "Nilai awal adalah jumlah tabungan saat waktu = 0.",
+              "Cari kata 'awal', 'mula-mula', atau 'biaya tetap'.",
+              "c = 150.000"
+            ]
+          },
+          {
+            "stage": "rumuskan",
+            "text": "Susun model: y = 50.000x + 150.000",
+            "latex": "y = 50{.}000x + 150{.}000",
+            "micro_steps": [],
+            "hints": [
+              "Bentuk modelnya y = mx + c.",
+              "Masukkan laju sebagai m dan nilai awal sebagai c.",
+              "y = 50.000x + 150.000"
+            ]
+          },
+          {
+            "stage": "selesaikan",
+            "text": "Cari x saat y = 400.000.",
+            "latex": null,
+            "micro_steps": [
+              "400.000 = 50.000x + 150.000",
+              "400.000 − 150.000 = 50.000x",
+              "250.000 = 50.000x",
+              "x = 250.000 ÷ 50.000",
+              "x = 5"
+            ],
+            "hints": [
+              "y sudah diketahui. Cari x yang membuat model bernilai y itu.",
+              "Pindahkan nilai awal ke ruas kiri, lalu bagi dengan laju.",
+              "x = 5"
+            ]
+          },
+          {
+            "stage": "tafsirkan",
+            "text": "Tafsirkan hasil dalam cerita: tulis artinya lengkap dengan satuan.",
+            "latex": null,
+            "micro_steps": [
+              "Jumlah tabungan mencapai Rp400.000 saat waktu 5 minggu."
+            ],
+            "hints": [
+              "Apa arti angka hasil hitunganmu dalam cerita?",
+              "Tuliskan jawabanmu dalam satu kalimat lengkap.",
+              "Jangan lupa satuannya, misalnya rupiah, km, atau liter."
+            ]
+          },
+          {
+            "stage": "periksa",
+            "text": "Periksa: apakah hasilnya masuk akal?",
+            "latex": null,
+            "micro_steps": [
+              "Cek: 50.000 × 5 + 150.000 = 400.000 ✔",
+              "Jika waktu = 0, maka jumlah tabungan = Rp150.000. Apakah ini sesuai cerita?"
+            ],
+            "hints": [
+              "Apakah hasilnya masuk akal untuk cerita ini?",
+              "Masukkan hasilmu kembali ke model. Apakah cocok?",
+              "Lihat grafiknya: apakah titik jawabanmu ada di garis?"
+            ]
+          }
+        ],
+        "accepted_forms": [
+          "y = 50000x + 150000",
+          "y = 150000 + 50000x"
+        ],
+        "interpretation": [
+          "Jumlah tabungan mencapai Rp400.000 saat waktu 5 minggu."
+        ],
+        "reasonableness": [
+          "Cek: 50.000 × 5 + 150.000 = 400.000 ✔",
+          "Jika waktu = 0, maka jumlah tabungan = Rp150.000. Apakah ini sesuai cerita?"
+        ]
+      },
+      "reflection_prompt": null,
+      "glossary": [],
+      "variant_of": "WP-T8-tabungan"
+    }
+  ]
+}

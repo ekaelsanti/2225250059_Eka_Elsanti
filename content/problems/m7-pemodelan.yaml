@@ -1,0 +1,172 @@
+# Soal cerita modul M7 (Pemodelan Soal Cerita).
+# Format: docs/MODELING_ENGINE.md §8. Angka di teks ditulis sebagai {nama_param}
+# agar generator dapat membuat variasi angka dan aplikasi dapat menyorot info "diketahui".
+# Bangun dengan: npm run build:content  (atau python -m mathengine.cli build-content)
+
+- id: WP-T1-beras
+  type: T1
+  context: personal
+  context_level: K-A
+  cognitive_level: pemahaman
+  title: Membeli Beras
+  text: "Harga beras di warung Bu Sari Rp{m} per kg. Nadia membeli {x} kg beras. Berapa yang harus dibayar Nadia?"
+  params: {m: 14000, x: 3}
+  models:
+    - x: {meaning: berat beras, unit: kg}
+      y: {meaning: harga, unit: rupiah}
+      m: "{m}"
+  tasks:
+    - {kind: predict, x: "{x}"}
+  glossary: [per]
+  vary: {m: [13000, 14000, 15000], x: [2, 4, 5]}
+  variants: 3
+  seed: 11
+
+- id: WP-T2-internet
+  type: T2
+  context: personal
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Langganan Internet Rumah
+  text: "Biaya pemasangan internet rumah Rp{c}. Setiap bulan pelanggan membayar Rp{m}. Tuliskan model biaya langganan. Berapa total biaya setelah {x} bulan?"
+  params: {c: 250000, m: 150000, x: 6}
+  models:
+    - x: {meaning: lama berlangganan, unit: bulan}
+      y: {meaning: total biaya, unit: rupiah}
+      m: "{m}"
+      c: "{c}"
+  tasks:
+    - {kind: build_model}
+    - {kind: predict, x: "{x}"}
+  reflection_prompt: "Mengapa biaya pada bulan ke-0 tidak sama dengan Rp0?"
+  glossary: [biaya pemasangan]
+  vary: {c: [200000, 250000, 300000], m: [100000, 150000, 175000], x: [4, 6, 12]}
+  variants: 3
+  seed: 21
+
+- id: WP-T3-cetak-foto
+  type: T3
+  context: sosial-budaya
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Mencetak Foto Kelas
+  text: "Biaya mencetak {x1} lembar foto Rp{y1}, sedangkan biaya mencetak {x2} lembar foto Rp{y2}. Biaya ini terdiri atas biaya tetap dan biaya per lembar. Berapa biaya tetap dan biaya per lembar? Berapa biaya mencetak {x} lembar foto?"
+  params: {x1: 10, y1: 35000, x2: 25, y2: 72500, x: 40}
+  models:
+    - x: {meaning: banyak foto, unit: lembar}
+      y: {meaning: biaya, unit: rupiah}
+      points: [["{x1}", "{y1}"], ["{x2}", "{y2}"]]
+  tasks:
+    - {kind: find_initial}
+    - {kind: find_rate}
+    - {kind: predict, x: "{x}"}
+  glossary: [biaya tetap]
+
+- id: WP-T4-cabai
+  type: T4
+  context: saintifik
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Tanaman Cabai Rawit
+  text: "Siswa kelas 8 mengukur tinggi tanaman cabai setiap minggu. Hasilnya ada pada tabel. Jika pertumbuhannya tetap, berapa tinggi tanaman pada minggu ke-{x}?"
+  params: {c: 5, m: 2, x: 8}
+  models:
+    - x: {meaning: waktu, unit: minggu}
+      y: {meaning: tinggi tanaman, unit: cm}
+      m: "{m}"
+      c: "{c}"
+  stimulus: {kind: table, x: [0, 1, 2, 3]}
+  tasks:
+    - {kind: find_rate}
+    - {kind: build_model}
+    - {kind: predict, x: "{x}"}
+
+- id: WP-T5-bus
+  type: T5
+  context: sosial-budaya
+  context_level: K-C
+  cognitive_level: penerapan
+  title: Perjalanan Bus Antarkota
+  text: "Grafik menunjukkan jarak bus dari Terminal Kampung Rambutan terhadap waktu perjalanan. Bus berangkat pukul 06.00 dengan tiket seharga Rp85.000. Berapa kecepatan bus? Berapa jarak bus dari terminal setelah {x} jam?"
+  params: {m: 60, c: 15, x: 3}
+  models:
+    - x: {meaning: waktu perjalanan, unit: jam}
+      y: {meaning: jarak dari terminal, unit: km}
+      m: "{m}"
+      c: "{c}"
+  stimulus: {kind: graph, x: [0, 1, 2, 4]}
+  distractors: ["pukul 06.00", "Rp85.000"]
+  tasks:
+    - {kind: find_rate}
+    - {kind: predict, x: "{x}"}
+
+- id: WP-T6-kuota
+  type: T6
+  context: personal
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Kuota Internet Andi
+  text: "Kuota internet Andi {c} GB. Setiap hari terpakai {r} GB. Setelah berapa hari kuotanya habis?"
+  params: {c: 12, r: "1/2"}
+  models:
+    - x: {meaning: waktu, unit: hari}
+      y: {meaning: sisa kuota, unit: GB}
+      m: "-1/2"
+      c: "{c}"
+  tasks:
+    - {kind: inverse, y: 0}
+  glossary: [kuota]
+
+- id: WP-T6-suhu
+  type: T6
+  context: saintifik
+  context_level: K-C
+  cognitive_level: penalaran
+  title: Suhu Malam di Bandung
+  text: "Pukul 18.00 suhu udara di Bandung {c} °C. Setelah itu suhu turun {r} °C setiap jam. Berapa suhu udara setelah {x} jam?"
+  params: {c: 28, r: "3/2", x: 4}
+  models:
+    - x: {meaning: waktu, unit: jam}
+      y: {meaning: suhu, unit: "°C"}
+      m: "-3/2"
+      c: "{c}"
+  distractors: ["Pukul 18.00"]
+  tasks:
+    - {kind: predict, x: "{x}"}
+
+- id: WP-T7-ramp
+  type: T7
+  context: sosial-budaya
+  context_level: K-C
+  cognitive_level: penalaran
+  title: Ramp Kursi Roda di Sekolah
+  text: "Sekolah membangun ramp kursi roda yang naik setinggi {rise} cm dengan jarak mendatar {run} cm. Berapa kemiringan ramp tersebut? Aturan bangunan meminta kemiringan ramp paling besar 1/12. Apakah ramp ini memenuhi aturan?"
+  params: {rise: 50, run: 600}
+  models:
+    - x: {meaning: jarak mendatar, unit: cm}
+      y: {meaning: ketinggian, unit: cm}
+      rise: "{rise}"
+      run: "{run}"
+  tasks:
+    - {kind: steepness}
+  reflection_prompt: "Mengapa ramp untuk kursi roda tidak boleh terlalu curam?"
+  glossary: [kemiringan]
+
+- id: WP-T8-tabungan
+  type: T8
+  context: personal
+  context_level: K-B
+  cognitive_level: penerapan
+  title: Tabungan Study Tour
+  text: "Rani sudah punya tabungan Rp{c}. Setiap minggu ia menabung Rp{m}. Setelah berapa minggu tabungannya menjadi Rp{y}?"
+  params: {c: 150000, m: 25000, y: 400000}
+  models:
+    - x: {meaning: waktu, unit: minggu}
+      y: {meaning: jumlah tabungan, unit: rupiah}
+      m: "{m}"
+      c: "{c}"
+  tasks:
+    - {kind: inverse, y: "{y}"}
+  vary: {c: [100000, 150000, 200000], m: [20000, 25000, 50000]}
+  variants: 2
+  seed: 81

@@ -1,0 +1,29 @@
+# JavaScript
+node_modules/
+dist/
+coverage/
+playwright-report/
+test-results/
+apps/web/android/app/build/
+apps/web/android/.gradle/
+
+# Python
+.venv/
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+build/
+
+# Riset: data siswa & foto tidak boleh masuk repositori
+docs/research/*.pdf
+docs/research/*.jpg
+docs/research/*.png
+exports/
+
+# Lain-lain
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

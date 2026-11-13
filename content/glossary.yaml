@@ -1,0 +1,16 @@
+# Kamus Konteks (F-32). meaning maksimal 120 karakter; role menunjukkan peran matematisnya.
+- term: per
+  meaning: Untuk setiap satu satuan. "Rp14.000 per kg" artinya setiap 1 kg harganya Rp14.000.
+  role: laju
+- term: biaya pemasangan
+  meaning: Biaya yang dibayar sekali di awal, sebelum mulai berlangganan.
+  role: nilai_awal
+- term: biaya tetap
+  meaning: Biaya yang selalu dibayar, berapa pun banyaknya barang.
+  role: nilai_awal
+- term: kuota
+  meaning: Jatah data internet yang bisa dipakai, biasanya dalam GB.
+  role: y
+- term: kemiringan
+  meaning: Seberapa curam sesuatu; tinggi naik dibagi jarak mendatar.
+  role: laju

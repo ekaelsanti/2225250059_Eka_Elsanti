@@ -1,0 +1,154 @@
+{
+  "$defs": {
+    "Variable": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "description": "Arti variabel, mis. 'jarak tempuh'",
+          "title": "Meaning",
+          "type": "string"
+        },
+        "unit": {
+          "description": "Satuan, mis. 'km', 'rupiah'",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "meaning",
+        "unit"
+      ],
+      "title": "Variable",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "description": "Model y = m x + c dalam konteks.",
+  "properties": {
+    "name": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Name"
+    },
+    "x": {
+      "$ref": "#/$defs/Variable"
+    },
+    "y": {
+      "$ref": "#/$defs/Variable"
+    },
+    "m": {
+      "description": "Laju perubahan (satuan y per satuan x)",
+      "pattern": "^-?\\d+(/\\d+)?$",
+      "title": "M",
+      "type": "string"
+    },
+    "c": {
+      "description": "Nilai awal (y saat x = 0)",
+      "pattern": "^-?\\d+(/\\d+)?$",
+      "title": "C",
+      "type": "string"
+    },
+    "domain_min": {
+      "anyOf": [
+        {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Domain Min"
+    },
+    "domain_max": {
+      "anyOf": [
+        {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Domain Max"
+    },
+    "source": {
+      "default": "direct",
+      "enum": [
+        "direct",
+        "points",
+        "rise_run"
+      ],
+      "title": "Source",
+      "type": "string"
+    },
+    "points": {
+      "items": {
+        "maxItems": 2,
+        "minItems": 2,
+        "prefixItems": [
+          {
+            "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+            "pattern": "^-?\\d+(/\\d+)?$",
+            "type": "string"
+          },
+          {
+            "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+            "pattern": "^-?\\d+(/\\d+)?$",
+            "type": "string"
+          }
+        ],
+        "type": "array"
+      },
+      "title": "Points",
+      "type": "array"
+    },
+    "rise": {
+      "anyOf": [
+        {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Rise"
+    },
+    "run": {
+      "anyOf": [
+        {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Run"
+    }
+  },
+  "required": [
+    "x",
+    "y",
+    "m",
+    "c"
+  ],
+  "title": "LinearModel",
+  "type": "object"
+}

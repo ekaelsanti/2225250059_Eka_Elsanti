@@ -1,0 +1,18 @@
+{
+  "description": "Diagnosis model buatan siswa. model: m & c benar; input: persamaan siswa; expected: error_type (null = benar).",
+  "cases": [
+    {"m": "2500", "c": "4000", "input": "y = 2500x + 4000", "expected": null},
+    {"m": "2500", "c": "4000", "input": "y = 4.000 + 2.500x", "expected": null},
+    {"m": "2500", "c": "4000", "input": "2500x - y + 4000 = 0", "expected": null},
+    {"m": "2500", "c": "4000", "input": "y = 4000x + 2500", "expected": "RATE_INITIAL_SWAP"},
+    {"m": "2500", "c": "4000", "input": "y = 2500x", "expected": "MISSING_INITIAL"},
+    {"m": "-1/40", "c": "4", "input": "y = 1/40x + 4", "expected": "SIGN_DIRECTION"},
+    {"m": "-1/40", "c": "4", "input": "y = -0,025x + 4", "expected": null},
+    {"m": "-1/40", "c": "4", "input": "y = 4 - x/40", "expected": null},
+    {"m": "2500", "c": "4000", "input": "y = 2,5x + 4000", "expected": "UNIT_MISMATCH"},
+    {"m": "2500", "c": "4000", "input": "y = (x - 4000)/2500", "expected": "VAR_ROLE_SWAP"},
+    {"m": "2500", "c": "4000", "input": "y = 2500x + 3000", "expected": "WRONG_INITIAL"},
+    {"m": "2500", "c": "4000", "input": "y = 2500 + ", "expected": "PARSE_ERROR"},
+    {"m": "2500", "c": "4000", "input": "y = x^2", "expected": "PARSE_ERROR"}
+  ]
+}

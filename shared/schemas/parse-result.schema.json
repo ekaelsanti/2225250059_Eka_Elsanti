@@ -1,0 +1,387 @@
+{
+  "$defs": {
+    "ExtractedQuantity": {
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "title": "Value",
+          "type": "string"
+        },
+        "unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "title": "Unit"
+        },
+        "per_unit": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Per Unit"
+        },
+        "per_value": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Per Value"
+        },
+        "role": {
+          "default": "unknown",
+          "enum": [
+            "rate",
+            "initial",
+            "x_value",
+            "y_value",
+            "data",
+            "rise",
+            "run",
+            "unknown"
+          ],
+          "title": "Role",
+          "type": "string"
+        },
+        "start": {
+          "title": "Start",
+          "type": "integer"
+        },
+        "end": {
+          "title": "End",
+          "type": "integer"
+        },
+        "in_question": {
+          "default": false,
+          "title": "In Question",
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "value",
+        "unit",
+        "start",
+        "end"
+      ],
+      "title": "ExtractedQuantity",
+      "type": "object"
+    },
+    "LinearModel": {
+      "additionalProperties": false,
+      "description": "Model y = m x + c dalam konteks.",
+      "properties": {
+        "name": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Name"
+        },
+        "x": {
+          "$ref": "#/$defs/Variable"
+        },
+        "y": {
+          "$ref": "#/$defs/Variable"
+        },
+        "m": {
+          "description": "Laju perubahan (satuan y per satuan x)",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "title": "M",
+          "type": "string"
+        },
+        "c": {
+          "description": "Nilai awal (y saat x = 0)",
+          "pattern": "^-?\\d+(/\\d+)?$",
+          "title": "C",
+          "type": "string"
+        },
+        "domain_min": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Domain Min"
+        },
+        "domain_max": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Domain Max"
+        },
+        "source": {
+          "default": "direct",
+          "enum": [
+            "direct",
+            "points",
+            "rise_run"
+          ],
+          "title": "Source",
+          "type": "string"
+        },
+        "points": {
+          "items": {
+            "maxItems": 2,
+            "minItems": 2,
+            "prefixItems": [
+              {
+                "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+                "pattern": "^-?\\d+(/\\d+)?$",
+                "type": "string"
+              },
+              {
+                "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+                "pattern": "^-?\\d+(/\\d+)?$",
+                "type": "string"
+              }
+            ],
+            "type": "array"
+          },
+          "title": "Points",
+          "type": "array"
+        },
+        "rise": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Rise"
+        },
+        "run": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Run"
+        }
+      },
+      "required": [
+        "x",
+        "y",
+        "m",
+        "c"
+      ],
+      "title": "LinearModel",
+      "type": "object"
+    },
+    "Task": {
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "find_rate",
+            "find_initial",
+            "build_model",
+            "predict",
+            "inverse",
+            "intersect",
+            "compare",
+            "steepness",
+            "parallel",
+            "perpendicular"
+          ],
+          "title": "Kind",
+          "type": "string"
+        },
+        "x": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "X"
+        },
+        "y": {
+          "anyOf": [
+            {
+              "description": "Bilangan rasional eksak: bilangan bulat atau 'p/q'",
+              "pattern": "^-?\\d+(/\\d+)?$",
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Y"
+        },
+        "model": {
+          "default": 0,
+          "title": "Model",
+          "type": "integer"
+        }
+      },
+      "required": [
+        "kind"
+      ],
+      "title": "Task",
+      "type": "object"
+    },
+    "Variable": {
+      "additionalProperties": false,
+      "properties": {
+        "meaning": {
+          "description": "Arti variabel, mis. 'jarak tempuh'",
+          "title": "Meaning",
+          "type": "string"
+        },
+        "unit": {
+          "description": "Satuan, mis. 'km', 'rupiah'",
+          "title": "Unit",
+          "type": "string"
+        }
+      },
+      "required": [
+        "meaning",
+        "unit"
+      ],
+      "title": "Variable",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "enum": [
+        "ok",
+        "needs_confirmation",
+        "unsupported"
+      ],
+      "title": "Status",
+      "type": "string"
+    },
+    "type": {
+      "anyOf": [
+        {
+          "enum": [
+            "T1",
+            "T2",
+            "T3",
+            "T4",
+            "T5",
+            "T6",
+            "T7",
+            "T8",
+            "T9",
+            "T10"
+          ],
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Type"
+    },
+    "confidence": {
+      "maximum": 1,
+      "minimum": 0,
+      "title": "Confidence",
+      "type": "number"
+    },
+    "model": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/LinearModel"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    },
+    "tasks": {
+      "items": {
+        "$ref": "#/$defs/Task"
+      },
+      "title": "Tasks",
+      "type": "array"
+    },
+    "quantities": {
+      "items": {
+        "$ref": "#/$defs/ExtractedQuantity"
+      },
+      "title": "Quantities",
+      "type": "array"
+    },
+    "questions": {
+      "description": "Pertanyaan konfirmasi untuk pengguna",
+      "items": {
+        "type": "string"
+      },
+      "title": "Questions",
+      "type": "array"
+    },
+    "notes": {
+      "items": {
+        "type": "string"
+      },
+      "title": "Notes",
+      "type": "array"
+    }
+  },
+  "required": [
+    "status",
+    "confidence"
+  ],
+  "title": "ParseResult",
+  "type": "object"
+}
