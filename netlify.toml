@@ -11,10 +11,10 @@
   NODE_VERSION = "22"
 
 # Proxy the API to the Supabase Edge Function "api".
-# GANTI-PROJECT-REF → your Supabase project ref (Project Settings → General), then commit and push.
+# Supabase project ref: sskhjwvyqewgolwbszaj (project "gradiekan", Singapore).
 [[redirects]]
   from = "/api/*"
-  to = "https://GANTI-PROJECT-REF.supabase.co/functions/v1/api/:splat"
+  to = "https://sskhjwvyqewgolwbszaj.supabase.co/functions/v1/api/:splat"
   status = 200
   force = true
 

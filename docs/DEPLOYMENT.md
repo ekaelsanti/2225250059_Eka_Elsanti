@@ -55,7 +55,7 @@ Edge Function hanya menjalankan TypeScript, bukan Python. Bagian yang dipakai sa
 
    Perintah ini menjalankan `supabase functions deploy api --no-verify-jwt`. Aplikasi tidak memakai Supabase Auth (siswa anonim), jadi pemeriksaan JWT bawaan dimatikan. Fungsi tetap dijaga oleh validasi ketat, kuota harian, dan anggaran bulanan.
 3. Cek di browser: `https://<PROJECT_REF>.supabase.co/functions/v1/api/v1/health` → `{"ok":true,"ai_configured":true}`.
-4. Ganti `GANTI-PROJECT-REF` di `netlify.toml` (bagian `[[redirects]] from = "/api/*"`) dengan project ref, lalu commit dan push.
+4. Pastikan project ref di `netlify.toml` (bagian `[[redirects]] from = "/api/*"`) dengan project ref, lalu commit dan push.
 
 ## 3. Netlify: deploy frontend
 

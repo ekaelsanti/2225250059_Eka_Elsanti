@@ -21,7 +21,7 @@
     "api:dev": "node --env-file-if-exists=.env supabase/functions/api/dev-server.ts",
     "api:test": "node --test \"supabase/functions/api/tests/*.test.ts\"",
     "api:deploy": "supabase functions deploy api --no-verify-jwt",
-    "db:push": "supabase db push"
+    "db:push": "supabase db push --remote"
   },
   "engines": {
     "node": ">=20"
