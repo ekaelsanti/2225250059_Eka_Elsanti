@@ -8,8 +8,15 @@ import { Page } from '../components/Layout.jsx';
 import Visual from '../components/Visual.jsx';
 import { MODULE_BY_ID, MODULES } from '../content/modules.js';
 import { saveModule, setLast, useAppState } from '../store/store.js';
+import Illus from '../components/Illus.jsx';
+import PageBanner from '../components/PageBanner.jsx';
+import { PAGE_TEXT } from '../content/strings.id.js';
+import RmtPathCard from '../features/rmt/RmtPathCard.jsx';
 
 const TONES = ['blue', 'green', 'orange', 'purple', 'cyan', 'pink', 'yellow'];
+
+// ikon ilustrasi tiap modul (menggantikan emoji)
+const MODULE_ILLUS = { M0: 'sempoa', M1: 'tangga', M2: 'grafik', M3: 'panah', M4: 'pin', M5: 'samaDengan', M6: 'tegak' };
 
 export function MateriListScreen() {
   const s = useAppState();
@@ -17,33 +24,35 @@ export function MateriListScreen() {
   const pct = Math.round((done / MODULES.length) * 100);
   return (
     <Page title="Materi" subtitle="Kemiringan Garis Lurus">
-      <section className="summary-card">
-        <div className="summary-text">
-          <strong>
-            {done} dari {MODULES.length} materi selesai
-          </strong>
-          <div className="stat-bar" role="progressbar" aria-label="Progres materi" aria-valuemin={0} aria-valuemax={MODULES.length} aria-valuenow={done}>
-            <span style={{ width: `${pct}%` }} />
-          </div>
-          <p className="muted small">Urutan disarankan dari atas, tetapi kamu bebas memilih.</p>
+      <PageBanner tone="blue" illus="materi" title={PAGE_TEXT.materi.title}>
+        <strong className="pb-progress-label">
+          {done} dari {MODULES.length} materi selesai
+        </strong>
+        <div className="stat-bar pb-bar" role="progressbar" aria-label="Progres materi" aria-valuemin={0} aria-valuemax={MODULES.length} aria-valuenow={done}>
+          <span style={{ width: `${pct}%` }} />
         </div>
-        <Gradi size={52} showName={false} />
-      </section>
+        <p>{PAGE_TEXT.materi.text}</p>
+      </PageBanner>
+      <RmtPathCard />
       <div className="list">
         {MODULES.map((m, i) => {
           const p = s.modules[m.id];
           const state = p?.done ? 'done' : p ? 'doing' : 'todo';
-          const status = { done: '✔ Selesai', doing: '▶ Sedang dipelajari', todo: `± ${m.minutes} menit` }[state];
+          const status = { done: 'Selesai', doing: 'Sedang dipelajari', todo: `± ${m.minutes} menit` }[state];
           return (
             <a key={m.id} href={`#/materi/${m.id}`} className={`list-card ${state === 'done' ? 'done' : ''}`}>
               <span className={`list-icon tone-${TONES[i % TONES.length]}`} aria-hidden="true">
-                {m.icon}
+                <Illus name={MODULE_ILLUS[m.id] ?? 'materi'} size={36} />
               </span>
               <span className="list-body">
                 <small>{m.id}</small>
                 <strong>{m.title}</strong>
                 <span className="muted">{m.summary}</span>
-                <span className={`badge inline ${state === 'done' ? 'ok' : state === 'doing' ? 'doing' : ''}`}>{status}</span>
+                <span className={`badge inline ${state === 'done' ? 'ok' : state === 'doing' ? 'doing' : ''}`}>
+                  {state === 'done' && <Illus name="benar" size={16} className="ico" />}
+                  {state === 'doing' && <Illus name="main" size={16} className="ico" />}
+                  {status}
+                </span>
               </span>
               <span className="chev" aria-hidden="true">›</span>
             </a>
@@ -57,7 +66,7 @@ export function MateriListScreen() {
 function KeyPoint({ children }) {
   return (
     <div className="keypoint">
-      <span aria-hidden="true">⭐</span> <span>{children}</span>
+      <Illus name="bintang" size={24} className="ico" /> <span>{children}</span>
     </div>
   );
 }
@@ -103,12 +112,12 @@ export function MateriModuleScreen({ id }) {
           {chunk.keyPoint && <KeyPoint>{chunk.keyPoint}</KeyPoint>}
           {chunk.link && (
             <a className="btn" href={`#${chunk.link.to}`}>
-              {chunk.link.label}
+              {chunk.link.icon && <Illus name={chunk.link.icon} size={22} className="ico" />} {chunk.link.label}
             </a>
           )}
           {chunk.check && (
             <div className="check">
-              <p className="check-title">🤔 Coba sebentar (boleh dilewati)</p>
+              <p className="check-title"><Illus name="pikir" size={26} className="ico" /> Coba sebentar (boleh dilewati)</p>
               <CheckItem item={chunk.check} />
             </div>
           )}
@@ -117,11 +126,11 @@ export function MateriModuleScreen({ id }) {
 
       {onSummary && (
         <article className="card chunk">
-          <h2>⭐ Poin inti</h2>
+          <h2><Illus name="bintang" size={26} className="ico" /> Poin inti</h2>
           {keyPoints.map((k) => (
             <KeyPoint key={k}>{k}</KeyPoint>
           ))}
-          <h2>📝 Kuis singkat</h2>
+          <h2><Illus name="tulis" size={26} className="ico" /> Kuis singkat</h2>
           {module.quiz.map((q, j) => (
             <div key={j} className="quiz-item">
               <CheckItem item={q} onSolved={() => setQuizSolved((n) => n + 1)} />
@@ -129,7 +138,7 @@ export function MateriModuleScreen({ id }) {
           ))}
           {module.practiceLink && (
             <a className="btn" href="#/latihan">
-              ✏️ Latihan lebih banyak
+              <Illus name="latihan" size={20} className="ico" /> Latihan lebih banyak
             </a>
           )}
         </article>
@@ -148,7 +157,7 @@ export function MateriModuleScreen({ id }) {
               go('/materi');
             }}
           >
-            ✔ Selesai
+            <Illus name="benar" size={20} className="ico" /> Selesai
           </button>
         ) : (
           <button className="btn primary" onClick={() => setI(i + 1)}>

@@ -120,7 +120,7 @@ export const MODULES = [
       },
       {
         text: ['Coba ubah gradien di Lab Grafik untuk melihat arahnya berubah.'],
-        link: { to: '/lab', label: '🧪 Buka Lab Grafik' },
+        link: { to: '/lab', label: 'Buka Lab Grafik', icon: 'lab' },
         check: { type: 'choice', q: 'Jika m = −3, garisnya …', options: ['naik ↗', 'turun ↘', 'datar →'], answer: 1, explain: 'Benar! Gradien negatif berarti turun.' },
       },
     ],

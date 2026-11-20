@@ -1,7 +1,9 @@
+import { useEffect, useSyncExternalStore } from 'react';
 import { go } from '../app/router.js';
+import { useSession } from '../app/session.js';
 import { NAV_TEXT } from '../content/strings.id.js';
 import { setSetting, useAppState } from '../store/store.js';
-import Icon from './Icon.jsx';
+import Illus from './Illus.jsx';
 import InstallButton from './InstallButton.jsx';
 
 // [path, ikon emoji (navigasi bawah HP), ikon garis (menu samping), label, hanya di menu samping?]
@@ -9,21 +11,43 @@ import InstallButton from './InstallButton.jsx';
 const TABS = [
   ['/', '🏠', 'home', 'Beranda'],
   ['/materi', '📖', 'materi', 'Materi'],
+  ['/lab', '🧪', 'lab', 'Lab Grafik', true],
   ['/latihan', '✏️', 'latihan', 'Latihan'],
   ['/literasi', '🌏', 'literasi', 'Literasi'],
   ['/catatan', '📒', 'catatan', 'Catatan'],
-  ['/lab', '🧪', 'lab', 'Lab Grafik', true],
+  ['/tanya', '💬', 'tanya', 'Tanya AI', true],
   ['/pengaturan', '⚙️', 'pengaturan', 'Pengaturan', true],
 ];
 
-/** Tombol ☰ untuk membuka/menutup menu samping (hanya tampil di layar lebar). */
+// Layar < 900 px: menu samping menjadi laci yang muncul dari kiri (tertutup saat aplikasi dibuka).
+const DRAWER_QUERY = '(max-width: 899px)';
+const isDrawerLayout = () => typeof window !== 'undefined' && window.matchMedia?.(DRAWER_QUERY).matches;
+let drawerOpen = false;
+const drawerListeners = new Set();
+export function setDrawer(open) {
+  drawerOpen = open;
+  if (typeof document !== 'undefined') document.documentElement.dataset.mnav = open ? 'open' : 'closed';
+  drawerListeners.forEach((l) => l());
+}
+const useDrawer = () =>
+  useSyncExternalStore(
+    (cb) => {
+      drawerListeners.add(cb);
+      return () => drawerListeners.delete(cb);
+    },
+    () => drawerOpen,
+    () => false,
+  );
+
+/** Tombol ☰ untuk membuka/menutup menu samping (laptop) atau laci menu (HP). */
 function NavToggle() {
   const { settings } = useAppState();
-  const open = settings.navOpen !== false;
+  const drawer = useDrawer();
+  const open = isDrawerLayout() ? drawer : settings.navOpen !== false;
   return (
     <button type="button" className="icon-btn nav-toggle" aria-expanded={open}
       aria-label={open ? NAV_TEXT.hide : NAV_TEXT.show} title={open ? NAV_TEXT.hide : NAV_TEXT.show}
-      onClick={() => setSetting('navOpen', !open)}>
+      onClick={() => (isDrawerLayout() ? setDrawer(!drawer) : setSetting('navOpen', !open))}>
       ☰
     </button>
   );
@@ -55,26 +79,41 @@ export function Page({ title, subtitle, back, actions, children }) {
 
 export function BottomNav({ route }) {
   const section = route === '/' ? '/' : `/${route.split('/')[1]}`;
+  const { role } = useSession();
+  // Guru mendapat menu "Dasbor Guru" di menu samping (di HP: kartu di beranda).
+  const tabs = role === 'guru' ? [['/guru', '📊', 'dasbor', 'Dasbor Guru', true], ...TABS] : TABS;
+  const drawer = useDrawer();
+  useEffect(() => setDrawer(false), [route]); // tutup laci setelah pindah halaman
+  useEffect(() => {
+    if (!drawer) return undefined;
+    const onKey = (e) => e.key === 'Escape' && setDrawer(false);
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [drawer]);
   return (
-    <nav className="bottomnav" aria-label="Navigasi utama">
+    <>
+    {drawer && <div className="nav-backdrop" aria-hidden="true" onClick={() => setDrawer(false)} />}
+    <nav className="bottomnav" aria-label="Navigasi utama"
+      onClick={(e) => e.target.closest?.('a') && setDrawer(false)}>
       {/* logo + nama aplikasi (hanya di menu samping) */}
       <a className="nav-brand" href="#/" aria-label="GradieKAn, ke beranda">
         <img src="/icon.svg" alt="" width="36" height="36" />
         <span>GradieKAn</span>
       </a>
-      {TABS.map(([path, emoji, line, label, sideOnly]) => (
+      {tabs.map(([path, emoji, line, label, sideOnly]) => (
         <a key={path} href={`#${path}`} className={`${section === path ? 'active' : ''} ${sideOnly ? 'side-only' : ''}`}
           aria-current={section === path ? 'page' : undefined}>
           <span className="nav-icon nav-emoji" aria-hidden="true">
             {emoji}
           </span>
           <span className="nav-icon nav-line">
-            <Icon name={line} />
+            <Illus name={line} size={28} />
           </span>
           <span>{label}</span>
         </a>
       ))}
       <InstallButton variant="nav" />
     </nav>
+    </>
   );
 }

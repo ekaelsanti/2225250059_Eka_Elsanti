@@ -43,6 +43,8 @@ Prioritas: **M** = Must, **S** = Should, **C** = Could.
 | F-31 | Input Soal Cerita Bebas (online) | Literasi | GL ↑ | S |
 | F-32 | Kamus Konteks | Literasi; EL05 | EL ↓ | S |
 | F-33 | Buat Soal Ceritaku (*problem posing*) | Literasi; GL04 | GL ↑ | C |
+| F-34 | Tanya AI (bank jawaban offline + Claude, online, opsional) | DS03, IL01 | IL ↓ | S |
+| F-35 | Jalur RMT: 8 fase Input → Elaborasi → Output + Mediator & Kotak Alat ([RMT_FLOW.md](RMT_FLOW.md)) | K02, EL02, GL02, DS03 | GL ↑ | M |
 
 ---
 

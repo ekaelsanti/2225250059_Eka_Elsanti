@@ -214,5 +214,7 @@ db.version(1).stores({
 | ADR-08 | Parser soal cerita berbasis aturan (tanpa AI) | Dapat dijelaskan, gratis, deterministik, tanpa mengirim data ke pihak ketiga | LLM (biaya, privasi, tidak deterministik). Ditinjau ulang pada v2 |
 | ADR-09 | Mesin Python berjalan di server/build-time, bukan di perangkat | Pyodide + SymPy menambah unduhan ± 10–20 MB, melebihi batas APK/bundle | Pyodide di WebView |
 | ADR-10 | Pydantic sebagai sumber tunggal skema → JSON Schema → Ajv | Mencegah perbedaan struktur data antarbahasa | Mendefinisikan skema dua kali |
+| ADR-11 (revisi ADR-08, 18 Nov 2026) | F-34 Tanya AI: bank jawaban offline dulu, lalu Claude API (`claude-opus-5-5`, *effort* rendah, *fallback* server) lewat endpoint Python `/v1/ask`; dependensi baru `anthropic` | Disetujui pemilik proyek. Kunci API tetap di server; tanpa data siswa; fitur online opsional dengan pesan *fallback* offline. Parser soal cerita (ADR-08) tetap berbasis aturan | Memanggil AI langsung dari aplikasi (kunci bocor); hanya offline (tidak bisa menjawab pertanyaan bebas) |
+| ADR-12 (19 Nov 2026) | Tailwind CSS v3 dipasang (sudah tercantum di stack CLAUDE.md §2), hanya untuk `src/features/**`, preflight mati, reset garis pinggir terbatas `.rmt-scope` | Komponen baru (Jalur RMT) cepat ditulis tanpa mengubah tampilan lama di globals.css | Memakai Tailwind untuk semua file (berisiko: kelas lama seperti `inline`, `static` bentrok dengan utilitas Tailwind) |
 
 Tambahkan ADR baru setiap kali menambah dependensi besar atau mengubah arsitektur.

@@ -5,6 +5,7 @@ import { go } from '../app/router.js';
 import { buildIndex, search } from '../app/search.js';
 import { SEARCH_TEXT } from '../content/strings.id.js';
 import { useAppState } from '../store/store.js';
+import Illus from './Illus.jsx';
 
 function SearchPanel({ onClose }) {
   const state = useAppState();
@@ -31,7 +32,7 @@ function SearchPanel({ onClose }) {
     <div className="modal-backdrop search-backdrop" role="presentation" onClick={onClose}>
       <div className="search-panel" role="dialog" aria-modal="true" aria-label={SEARCH_TEXT.title} onClick={(e) => e.stopPropagation()}>
         <div className="search-bar">
-          <span aria-hidden="true">🔍</span>
+          <Illus name="cari" size={22} />
           <input ref={inputRef} type="search" value={query} onChange={(e) => setQuery(e.target.value)}
             placeholder={SEARCH_TEXT.placeholder} aria-label={SEARCH_TEXT.title} />
           <button type="button" className="link-btn" onClick={onClose}>{SEARCH_TEXT.close}</button>
@@ -89,7 +90,7 @@ export default function SearchButton() {
   return (
     <>
       <button type="button" className="icon-btn search-btn" aria-label={SEARCH_TEXT.title} title={SEARCH_TEXT.title} onClick={() => setOpen(true)}>
-        🔍
+        <Illus name="cari" size={24} />
       </button>
       {open && <SearchPanel onClose={() => setOpen(false)} />}
     </>

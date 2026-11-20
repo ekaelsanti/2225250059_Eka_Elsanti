@@ -20,6 +20,7 @@ const PAGES = [
   { title: 'Latihan: Dua titik saja', text: 'Hitung gradien dari dua titik tanpa grafik.', keywords: 'koordinat rumus', to: '/latihan', icon: '✏️' },
   { title: 'Latihan: Dari persamaan', text: 'Tentukan gradien dari persamaan garis.', keywords: 'y = mx + c ax + by + c = 0', to: '/latihan', icon: '✏️' },
   { title: 'Latihan: Sejajar & tegak lurus', text: 'Tentukan gradien garis yang sejajar atau tegak lurus.', keywords: 'gradien hubungan m1 m2', to: '/latihan', icon: '✏️' },
+  { title: 'Tanya AI', text: 'Tanya Gradi seputar gradien dan soal cerita.', keywords: 'chat ai bertanya bantuan gradi', to: '/tanya', icon: '💬' },
   { title: 'Lab Grafik', text: 'Geser nilai m dan c, lalu lihat garisnya berubah.', keywords: 'slider eksplorasi gradien', to: '/lab', icon: '🧪' },
   { title: 'Lencanaku', text: 'Lihat lencana yang sudah dan belum kamu raih.', keywords: 'badge capaian penghargaan', to: '/lencana', icon: '🏅' },
   { title: 'Catatan', text: 'Catatanmu sendiri dan poin inti materi.', keywords: 'catatanku refleksi', to: '/catatan', icon: '📒' },

@@ -34,8 +34,11 @@ export default defineConfig({
     }),
   ],
   // host: true -> bisa dibuka lewat localhost, 127.0.0.1, dan dari HP di Wi-Fi yang sama.
-  server: { host: true, port: 5173, fs: { allow: ['../..'] } },
-  preview: { host: true, port: 4173 },
+  // strictPort: bila server otomatis (Startup Windows) sudah berjalan, server kedua tidak pindah ke 5174.
+  server: { host: true, port: 5173, strictPort: true,
+    // F-34: /api -> server Python (sama asal, jadi HP di Wi-Fi yang sama juga bisa memakai Tanya AI)
+    proxy: { '/api': { target: 'http://127.0.0.1:8000', rewrite: (p) => p.replace(/^\/api/, '') } }, fs: { allow: ['../..'] } },
+  preview: { host: true, port: 4173, proxy: { '/api': { target: 'http://127.0.0.1:8000', rewrite: (p) => p.replace(/^\/api/, '') } } },
   test: {
     environment: 'node',
     include: ['tests/**/*.test.{js,jsx}'],

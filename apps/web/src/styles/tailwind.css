@@ -1,0 +1,23 @@
+/* Tailwind tanpa base/preflight global (lihat tailwind.config.js). */
+@tailwind components;
+
+/* Reset garis pinggir ala preflight, HANYA di dalam area fitur baru (.rmt-scope),
+   memakai :where() (spesifisitas 0) agar utilities dan gaya komponen lama tetap menang. */
+:where(.rmt-scope, .rmt-scope *, .rmt-scope ::before, .rmt-scope ::after) {
+  border-width: 0;
+  border-style: solid;
+  border-color: #e2e8f0;
+  box-sizing: border-box;
+}
+:where(.rmt-scope button, .rmt-scope input, .rmt-scope textarea) {
+  font: inherit;
+}
+
+@tailwind utilities;
+
+/* Jalur RMT memakai kolom samping (Mediator & Kotak Alat) di layar lebar */
+@media (min-width: 1100px) {
+  :root:has(.rmt-layout) .page {
+    max-width: 1340px;
+  }
+}

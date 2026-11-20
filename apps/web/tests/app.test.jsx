@@ -10,11 +10,14 @@ import { checkInterpretation, checkNumber, parseAnswer } from '../src/math/answe
 import { parseLinearEquation } from '../src/math/equation.js';
 import { equals, frac, mul, parseFrac, toString } from '../src/math/fraction.js';
 import { generateEquationProblem, generateRelationProblem, generateTwoPointProblem, meetsLevel } from '../src/math/generator.js';
+import { login } from '../src/app/session.js';
 import { update } from '../src/store/store.js';
+
+login('siswa', 'siswa1234'); // aplikasi kini dimulai dari layar login
 
 describe('semua layar dapat dirender', () => {
   beforeEach(() => update(() => ({ onboardingDone: true })));
-  const routes = ['/', '/materi', '/latihan', '/literasi', '/catatan', '/lab', '/pengaturan', '/lencana',
+  const routes = ['/', '/materi', '/belajar/gradien', '/latihan', '/literasi', '/catatan', '/lab', '/pengaturan', '/lencana',
     ...MODULES.map((m) => `/materi/${m.id}`), ...BASE_PROBLEMS.map((p) => `/literasi/${p.id}`)];
   it.each(routes)('%s', (route) => {
     window.location.hash = route;
@@ -32,13 +35,13 @@ describe('level soal cerita', () => {
   it.each([[0, 'Pemula'], [3, 'Pemula'], [4, 'Terampil'], [8, 'Mahir'], [11, 'Ahli']])('%i dari 11 -> %s', (done, label) => {
     expect(storyLevel(done, 11).label).toBe(label);
   });
-  it('beranda menampilkan level, satuan Benar, dan progress bar', () => {
+  it('beranda: tanpa kartu ringkasan, ada etalase lencana dan progres materi Gradi', () => {
     update(() => ({ onboardingDone: true }));
     window.location.hash = '/';
     const html = renderToString(<App />);
-    expect(html).toContain('Level: <!-- -->Pemula');
-    expect(html).toContain('Benar');
-    expect(html).toContain('role="progressbar"');
+    expect(html).not.toContain('stat-cards');
+    expect(html).toContain('badge-showcase');
+    expect(html).toContain('Progres materi 0%');
   });
 });
 

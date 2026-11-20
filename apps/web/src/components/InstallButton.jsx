@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { detectPlatform, promptInstall, useInstallState } from '../app/install.js';
 import { INSTALL_TEXT } from '../content/strings.id.js';
-import Icon from './Icon.jsx';
+import Illus from './Illus.jsx';
 
 /** variant 'nav': tampil sebagai item navigasi (di bawah Catatan); disembunyikan bila sudah terpasang. */
 export default function InstallButton({ variant = 'button' }) {
@@ -32,7 +32,7 @@ export default function InstallButton({ variant = 'button' }) {
             📲
           </span>
           <span className="nav-icon nav-line">
-            <Icon name="pasang" />
+            <Illus name="pasang" size={28} />
           </span>
           <span>{INSTALL_TEXT.navLabel}</span>
         </button>

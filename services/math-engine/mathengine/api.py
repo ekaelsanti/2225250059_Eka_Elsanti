@@ -16,7 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, ConfigDict, Field
 
-from . import __version__
+from . import __version__, tutor
 from .checker import check_interpretation, check_model, check_number, check_variables
 from .parser import parse
 from .schemas import Diagnosis, Frac, LinearModel, ParseResult, Solution, Task
@@ -111,6 +111,21 @@ def check_endpoint(req: CheckRequest) -> Diagnosis:
     if req.stage == "answer":
         return check_number(req.expected, req.input)
     return check_interpretation(req.expected, req.unit, req.input)
+
+
+@app.get("/v1/ask/status")
+def ask_status() -> dict[str, bool]:
+    """F-34: apakah Tanya AI sudah diaktifkan (kunci API terpasang)? Kunci tidak pernah dikirim."""
+    return {"enabled": tutor._load_key() is not None}
+
+
+@app.post("/v1/ask", response_model=tutor.AskResponse)
+def ask_endpoint(req: tutor.AskRequest) -> tutor.AskResponse:
+    """F-34 Tanya AI. Hanya menerima teks pertanyaan + riwayat singkat, tanpa data siswa."""
+    try:
+        return tutor.ask(req)
+    except tutor.TutorUnavailable as exc:
+        raise HTTPException(status_code=exc.status, detail=str(exc)) from exc
 
 
 @app.post("/v1/explain", response_model=Solution)

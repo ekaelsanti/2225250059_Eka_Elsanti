@@ -68,6 +68,99 @@ export const INSTALL_TEXT = {
   close: 'Mengerti',
 };
 
+export const LOGIN_TEXT = {
+  title: 'Masuk ke GradieKAn',
+  subtitle: 'Pilih peranmu, lalu masukkan PIN.',
+  roleLabel: 'Masuk sebagai',
+  roles: {
+    siswa: { icon: '🎓', name: 'Siswa', desc: 'Belajar, latihan, dan soal cerita' },
+    guru: { icon: '🧑‍🏫', name: 'Guru', desc: 'Dasbor progres belajar' },
+  },
+  pinLabel: 'PIN',
+  pinPlaceholder: 'Masukkan PIN',
+  pinInfo: (pins) => `PIN siswa: ${pins.siswa} · PIN guru: ${pins.guru}`,
+  submit: (role) => `Masuk sebagai ${role}`,
+  chooseRole: 'Pilih Siswa atau Guru dulu, ya.',
+  wrongPin: 'PIN belum tepat. Coba lagi, ya.',
+  showPin: 'Tampilkan PIN',
+  hidePin: 'Sembunyikan PIN',
+  logout: 'Keluar',
+};
+
+/** Spanduk pembuka tiap menu (F-UI). Kalimat pendek, ramah. */
+export const PAGE_TEXT = {
+  materi: { title: 'Ayo belajar gradien!', text: 'Urutan disarankan dari atas, tetapi kamu bebas memilih.' },
+  latihan: { title: 'Asah kemampuanmu', text: 'Pilih jenis soal dan tingkatnya. Tidak ada batas waktu, kerjakan pelan-pelan.' },
+  literasi: { title: 'Modelkan soal cerita', text: 'Setiap soal cerita dikerjakan dalam 5 tahap:' },
+  catatan: { title: 'Catatanku', text: 'Tulis dengan kata-katamu sendiri. Poin inti dari materi juga ada di sini.' },
+  lab: { title: 'Lab Grafik', text: 'Geser m dan c, lalu lihat garisnya berubah.' },
+  pengaturan: { title: 'Pengaturan', text: 'Atur tampilan dan bantuan sesuai kenyamananmu.' },
+  lencana: { title: 'Koleksi lencanamu', text: 'Terus berlatih untuk membuka semua lencana!' },
+};
+
+export const BADGE_TEXT = {
+  title: 'Lencanaku',
+  count: (n, total) => `${n}/${total} lencana diraih`,
+  start: 'Kumpulkan 4 lencana. Setiap langkah kecil ada hadiahnya!',
+  keepGoing: (n) => `Hebat, sudah ${n} lencana! Ayo raih yang berikutnya.`,
+  allDone: 'Luar biasa! Semua lencana sudah kamu raih. 🎉',
+  next: 'Target berikutnya',
+  earned: '✔ Diraih!',
+  total: 'Kemajuan lencana',
+};
+
+export const TANYA_TEXT = {
+  title: 'Tanya AI',
+  subtitle: 'Tanya Gradi seputar gradien',
+  intro: 'Halo! Aku Gradi. Tanyakan apa saja tentang gradien, persamaan garis, atau soal cerita.',
+  placeholder: 'Tulis pertanyaanmu…',
+  send: 'Kirim',
+  suggest: 'Contoh pertanyaan:',
+  suggestions: ['Apa itu gradien?', 'Bagaimana menghitung gradien dari dua titik?', 'Apa syarat dua garis tegak lurus?', 'Kenapa gradien bisa negatif?'],
+  thinking: 'Gradi sedang berpikir…',
+  fromBank: '📚 Dari bank jawaban (offline)',
+  fromAI: '✨ Dijawab Gradi AI',
+  askAI: '✨ Tanya Gradi AI lebih lanjut',
+  open: 'Buka',
+  offline: 'Kamu sedang offline. Gradi AI butuh internet. Coba buka Materi atau tanya dengan kata lain.',
+  server: 'Gradi AI belum bisa dihubungi. Pastikan server AI di laptop guru menyala, lalu coba lagi.',
+  notFound: 'Gradi belum menemukan jawabannya di bank jawaban.',
+  privacy: 'Pertanyaanmu dikirim ke layanan AI tanpa nama atau kode peserta. Jangan menulis data pribadi, ya.',
+  clear: 'Mulai ulang',
+};
+
+/** Bank jawaban offline Tanya AI. keys = frasa kunci (huruf kecil, tanpa tanda baca). */
+export const TANYA_FAQ = [
+  { keys: ['kemiringan', 'apa itu gradien', 'pengertian gradien', 'arti gradien', 'maksud gradien', 'gradien itu apa'], to: '/materi/M0', toLabel: 'Materi M0',
+    answer: 'Gradien (m) adalah ukuran kemiringan garis. Gradien = naik ÷ jalan = Δy ÷ Δx. Makin besar nilainya, makin curam garisnya.' },
+  { keys: ['dua titik', 'titik a', 'x1', 'y1', 'x2', 'y2', 'rumus gradien', 'menghitung gradien'], to: '/latihan', toLabel: 'Latihan',
+    answer: 'Dari dua titik (x₁, y₁) dan (x₂, y₂):\n1. Hitung Δy = y₂ − y₁.\n2. Hitung Δx = x₂ − x₁.\n3. m = Δy ÷ Δx, lalu sederhanakan pecahannya.\nUrutan titik boleh ditukar, asal sama di atas dan di bawah.' },
+  { keys: ['negatif', 'gradien negatif', 'turun', 'menurun'], to: '/lab', toLabel: 'Lab Grafik',
+    answer: 'Gradien negatif berarti garis turun dari kiri ke kanan. Saat x bertambah, y berkurang. Coba geser m ke kiri di Lab Grafik.' },
+  { keys: ['nol', 'gradien nol', 'mendatar', 'horizontal', 'datar'],
+    answer: 'Garis mendatar punya gradien 0, karena Δy = 0. Bentuk persamaannya y = c.' },
+  { keys: ['tegak', 'vertikal', 'tidak terdefinisi'],
+    answer: 'Garis tegak (vertikal) punya Δx = 0. Pembagian dengan 0 tidak boleh, jadi gradiennya tidak terdefinisi. Bentuk persamaannya x = k.' },
+  { keys: ['sejajar', 'garis sejajar'], to: '/latihan', toLabel: 'Latihan sejajar',
+    answer: 'Dua garis sejajar punya gradien yang sama: m₁ = m₂. Contoh: y = 2x + 1 sejajar dengan y = 2x − 5.' },
+  { keys: ['tegak lurus', 'saling tegak lurus', 'berpotongan tegak lurus'], to: '/latihan', toLabel: 'Latihan tegak lurus',
+    answer: 'Dua garis tegak lurus jika m₁ × m₂ = −1. Jadi m₂ = −1 ÷ m₁: balik pecahannya, lalu ganti tandanya. Contoh: m₁ = 2/3 → m₂ = −3/2.' },
+  { keys: ['y mx c', 'y = mx + c', 'mx c', 'persamaan garis', 'dari persamaan'], to: '/latihan', toLabel: 'Latihan persamaan',
+    answer: 'Pada y = mx + c, angka di depan x adalah gradien (m), dan c adalah titik potong sumbu y. Pastikan y sendirian di ruas kiri dulu.' },
+  { keys: ['ax by c', 'ax + by + c', 'bentuk umum', 'ax by'],
+    answer: 'Untuk ax + by + c = 0, ubah dulu ke bentuk y = …. Gradiennya m = −a ÷ b. Contoh: 2x + 4y − 8 = 0 → m = −2/4 = −1/2.' },
+  { keys: ['titik potong', 'konstanta', 'nilai c', 'sumbu y'],
+    answer: 'c adalah nilai y saat x = 0, yaitu titik potong garis dengan sumbu y. Pada soal cerita, c adalah nilai awal.' },
+  { keys: ['soal cerita', 'memodelkan', 'model matematika', 'laju', 'nilai awal'], to: '/literasi', toLabel: 'Literasi',
+    answer: 'Untuk soal cerita: cari laju (yang bertambah tiap satuan) sebagai m, dan nilai awal (yang ada sejak awal) sebagai c. Modelnya y = mx + c. Jangan lupa tafsirkan jawaban dengan satuan.' },
+  { keys: ['pecahan', 'menyederhanakan', 'sederhanakan', 'fpb'],
+    answer: 'Sederhanakan pecahan dengan membagi pembilang dan penyebut dengan FPB-nya. Contoh: 6/4 → bagi 2 → 3/2.' },
+  { keys: ['kurang negatif', 'min min', 'dikurangi negatif', 'tanda negatif'],
+    answer: 'Mengurangi bilangan negatif sama dengan menambah. Contoh: 3 − (−2) = 3 + 2 = 5. Tulis tanda kurung agar tidak keliru.' },
+  { keys: ['grafik', 'cek grafik', 'lab grafik', 'menggambar garis'], to: '/lab', toLabel: 'Lab Grafik',
+    answer: 'Di Lab Grafik kamu bisa menggeser m dan c, lalu melihat garisnya berubah. Pakai untuk memeriksa jawabanmu.' },
+];
+
 export const SEARCH_TEXT = {
   title: 'Cari',
   placeholder: 'Cari materi, soal cerita, istilah…',

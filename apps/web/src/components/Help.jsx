@@ -2,6 +2,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import { playCorrect, playWrong } from '../app/sound.js';
 import { checkNumber } from '../math/answer.js';
+import Illus from './Illus.jsx';
 
 /**
  * Umpan balik benar/salah + suara lembut. Suara berbunyi sekali setiap objek `d` baru
@@ -17,7 +18,7 @@ export function Feedback({ d }) {
   if (!d) return null;
   return (
     <p className={`fb ${d.correct ? 'ok' : 'warn'}`} role="status">
-      <span aria-hidden="true">{d.correct ? '✔ ' : '⚠ '}</span>
+      <Illus name={d.correct ? 'benar' : 'awas'} size={20} className="ico" />
       {d.message}
     </p>
   );
@@ -34,14 +35,14 @@ export function HintBox({ hints, onLevel }) {
   if (level === 0) {
     return (
       <button type="button" className="chip-btn" onClick={() => open(1)}>
-        💡 Butuh petunjuk?
+        <Illus name="lampu" size={20} className="ico" /> Butuh petunjuk?
       </button>
     );
   }
   return (
     <div className="hintbox">
       <p className="hint-title">
-        💡 Petunjuk {level} dari {hints.length}
+        <Illus name="lampu" size={20} className="ico" /> Petunjuk {level} dari {hints.length}
       </p>
       {hints.slice(0, level).map((h, i) => (
         <p key={i} className={i === level - 1 ? '' : 'muted'}>
@@ -58,7 +59,7 @@ export function HintBox({ hints, onLevel }) {
 }
 
 /** Langkah hitung pelan-pelan (dibuka atas permintaan). */
-export function MicroSteps({ lines, label = '🔢 Hitung pelan-pelan', onOpen }) {
+export function MicroSteps({ lines, label = 'Hitung pelan-pelan', icon = 'hitung', onOpen }) {
   const [open, setOpen] = useState(false);
   if (!lines?.length) return null;
   return open ? (
@@ -74,7 +75,7 @@ export function MicroSteps({ lines, label = '🔢 Hitung pelan-pelan', onOpen })
       setOpen(true);
       onOpen?.();
     }}>
-      {label}
+      <Illus name={icon} size={20} className="ico" /> {label}
     </button>
   );
 }
@@ -121,7 +122,7 @@ export function AnswerInput({ label, expected, hints, micro, warning, onSolved, 
           Cek
         </button>
       </div>
-      {warning && !solved && <p className="sign-warning">⚠ {warning}</p>}
+      {warning && !solved && <p className="sign-warning"><Illus name="awas" size={20} className="ico" /> {warning}</p>}
       <Feedback d={result} />
       {!solved && (
         <div className="helpbar">
@@ -129,7 +130,7 @@ export function AnswerInput({ label, expected, hints, micro, warning, onSolved, 
           <MicroSteps lines={micro} onOpen={() => setUsedMicro(true)} />
           {(hintLevel >= (hints?.length ?? 0) || wrong >= 2) && (
             <button type="button" className="chip-btn" onClick={reveal}>
-              👀 Tunjukkan jawaban
+              <Illus name="lihat" size={20} className="ico" /> Tunjukkan jawaban
             </button>
           )}
         </div>

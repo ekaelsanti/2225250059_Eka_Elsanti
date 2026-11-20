@@ -4,6 +4,8 @@ import { playTick } from '../app/sound.js';
 import { markLab } from '../store/store.js';
 import CartesianPlane from '../components/CartesianPlane.jsx';
 import { Page } from '../components/Layout.jsx';
+import PageBanner from '../components/PageBanner.jsx';
+import { PAGE_TEXT } from '../content/strings.id.js';
 
 const fmt = (v) => v.toLocaleString('id-ID', { maximumFractionDigits: 2 });
 
@@ -17,6 +19,7 @@ export default function LabScreen() {
 
   return (
     <Page title="Lab Grafik" subtitle="Geser m dan c, lihat garisnya" back="/">
+      <PageBanner tone="cyan" illus="lab" title={PAGE_TEXT.lab.title} text={PAGE_TEXT.lab.text} />
       <article className="card">
         <p className="equation">
           y = {m !== 0 && (<><b className="c-slope">{mText}</b>x</>)}<b className="c-intercept">{cText}</b>

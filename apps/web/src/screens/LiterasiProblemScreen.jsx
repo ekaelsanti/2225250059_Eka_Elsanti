@@ -13,6 +13,7 @@ import { checkInterpretation } from '../math/answer.js';
 import { formatNumber, parseFrac, toNumber } from '../math/fraction.js';
 import { checkModel } from '../math/modelCheck.js';
 import { addNote, saveStory, setLast } from '../store/store.js';
+import Illus from '../components/Illus.jsx';
 
 const num = (v) => toNumber(parseFrac(v));
 const fmt = (v) => formatNumber(parseFrac(v));
@@ -65,7 +66,7 @@ function ModelingFlow({ problem }) {
 
       {stage > 0 && (
         <details className="story-peek">
-          <summary>📄 Lihat soal</summary>
+          <summary><Illus name="kertas" size={20} className="ico" /> Lihat soal</summary>
           <p>{problem.text}</p>
           <Stimulus problem={problem} />
         </details>
@@ -89,14 +90,14 @@ function ModelingFlow({ problem }) {
           </button>
         ) : (
           <button className="btn primary" disabled={!done[4]} onClick={finish}>
-            ✔ Selesai
+            <Illus name="benar" size={20} className="ico" /> Selesai
           </button>
         )}
       </div>
       {variants.length > 1 && (
         <p className="center">
           <a className="link-btn" href={`#/literasi/${nextVariant.id}`}>
-            🔁 Coba soal serupa (angka berbeda)
+            <Illus name="ulang" size={20} className="ico" /> Coba soal serupa (angka berbeda)
           </a>
         </p>
       )}
@@ -177,7 +178,7 @@ function Glossary({ problem }) {
   if (!problem.glossary.length) return null;
   return (
     <div className="glossary">
-      <span className="muted">📘 Kamus:</span>
+      <span className="muted"><Illus name="kamus" size={20} className="ico" /> Kamus:</span>
       {problem.glossary.map((t) => (
         <button key={t} className={`chip ${open === t ? 'on' : ''}`} onClick={() => setOpen(open === t ? null : t)}>
           {t}
@@ -217,7 +218,7 @@ function Pahami({ problem, onDone }) {
 
   return (
     <>
-      <h2>① Pahami</h2>
+      <h2 className="stage-title"><Illus name="literasi" size={30} className="ico" /> Pahami</h2>
       <p className="muted">Baca ceritanya. Lalu <b>ketuk kalimat yang ditanyakan</b>.</p>
       <div className="story" aria-label="Teks soal">
         {sentences.map((s, i) => (
@@ -234,7 +235,7 @@ function Pahami({ problem, onDone }) {
       <Glossary problem={problem} />
       <div className="helpbar">
         <button className="chip-btn" onClick={() => setHighlight(!highlight)}>
-          🔍 {highlight ? 'Matikan sorotan' : 'Sorot info'}
+          <Illus name="cari" size={20} className="ico" /> {highlight ? 'Matikan sorotan' : 'Sorot info'}
         </button>
       </div>
       <Feedback d={pickFeedback} />
@@ -267,7 +268,7 @@ function Rumuskan({ problem, onDone, onAssist }) {
 
   return (
     <>
-      <h2>② Rumuskan</h2>
+      <h2 className="stage-title"><Illus name="tulis" size={30} className="ico" /> Rumuskan</h2>
       {needsVars && (
         <div className="sub">
           <ChoiceQuestion question="Apa yang menjadi x (yang mempengaruhi)?" options={options}
@@ -333,14 +334,14 @@ function ModelInput({ model, title, hints, micro, onSolved }) {
       {!solved && (
         <div className="helpbar">
           <HintBox hints={hints} onLevel={() => setUsedHelp(true)} />
-          <MicroSteps lines={micro} label="📘 Lihat langkah lengkap" onOpen={() => setUsedHelp(true)} />
+          <MicroSteps lines={micro} label="Lihat langkah lengkap" icon="kamus" onOpen={() => setUsedHelp(true)} />
           {tries >= 2 && (
             <button type="button" className="chip-btn" onClick={() => {
               setText(problem_eq(model));
               setResult({ correct: true, silent: true, message: 'Ini modelnya. Perhatikan mana laju dan mana nilai awal.' });
               finish(false);
             }}>
-              👀 Tunjukkan model
+              <Illus name="lihat" size={20} className="ico" /> Tunjukkan model
             </button>
           )}
         </div>
@@ -383,7 +384,7 @@ function Selesaikan({ problem, onDone, onAssist }) {
 
   return (
     <>
-      <h2>③ Selesaikan</h2>
+      <h2 className="stage-title"><Illus name="hitung" size={30} className="ico" /> Selesaikan</h2>
       {items.length === 0 && <p>Tidak ada hitungan tambahan. Modelmu sudah menjawab soal. Lanjut ke tahap berikutnya.</p>}
       {items.map((it, i) => (
         <div key={i} className="sub">
@@ -417,7 +418,7 @@ function Tafsirkan({ problem, onDone, onAssist }) {
 
   return (
     <>
-      <h2>④ Tafsirkan</h2>
+      <h2 className="stage-title"><Illus name="pikir" size={30} className="ico" /> Tafsirkan</h2>
       <p>
         {target ? <>Hasil hitunganmu: <b>{target.display}</b>. </> : null}
         Apa artinya dalam cerita? Tulis satu kalimat lengkap {unit ? 'dengan satuannya' : ''}.
@@ -441,7 +442,7 @@ function Tafsirkan({ problem, onDone, onAssist }) {
               onAssist();
               onDone();
             }}>
-              👀 Lihat contoh tafsiran
+              <Illus name="lihat" size={20} className="ico" /> Lihat contoh tafsiran
             </button>
           )}
         </div>
@@ -509,7 +510,7 @@ function Periksa({ problem, onDone }) {
 
   return (
     <>
-      <h2>⑤ Periksa</h2>
+      <h2 className="stage-title"><Illus name="benar" size={30} className="ico" /> Periksa</h2>
       <p className="muted">Lihat grafiknya: apakah titik jawabanmu ada di garis? Centang setiap pemeriksaan.</p>
       <CartesianPlane {...plane} />
       <ul className="checklist">
@@ -527,13 +528,13 @@ function Periksa({ problem, onDone }) {
       )}
       {problem.reflection_prompt && (
         <div className="sub reflection">
-          <p className="answer-label">💬 Jelaskan dengan kata-katamu (boleh dilewati): {problem.reflection_prompt}</p>
+          <p className="answer-label"><Illus name="tanya" size={20} className="ico" /> Jelaskan dengan kata-katamu (boleh dilewati): {problem.reflection_prompt}</p>
           <textarea rows={3} value={reflection} onChange={(e) => setReflection(e.target.value)} aria-label="Refleksi" />
           <button className="btn" disabled={!reflection.trim() || saved} onClick={() => {
             addNote({ title: problem.reflection_prompt, text: reflection, source: `Literasi: ${problem.title}` });
             setSaved(true);
           }}>
-            {saved ? '✔ Tersimpan di Catatan' : '📒 Simpan ke Catatan'}
+            <Illus name={saved ? 'benar' : 'catatan'} size={20} className="ico" /> {saved ? 'Tersimpan di Catatan' : 'Simpan ke Catatan'}
           </button>
         </div>
       )}

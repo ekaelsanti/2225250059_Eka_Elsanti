@@ -6,6 +6,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest';
 import App from '../src/App.jsx';
 import { parseLinearEquation } from '../src/math/equation.js';
 import { div, frac, toString } from '../src/math/fraction.js';
+import { login, logout } from '../src/app/session.js';
 import { getState, recordPractice, resetAll } from '../src/store/store.js';
 
 globalThis.IS_REACT_ACT_ENVIRONMENT = true;
@@ -33,6 +34,7 @@ const goTo = (hash) =>
 
 beforeEach(async () => {
   resetAll();
+  login('siswa', 'siswa1234'); // aplikasi kini dimulai dari layar login
   container = document.createElement('div');
   document.body.appendChild(container);
   root = createRoot(container);
@@ -42,6 +44,48 @@ beforeEach(async () => {
 afterEach(() => {
   act(() => root.unmount());
   container.remove();
+});
+
+describe('login siswa & guru', () => {
+  const loginForm = async (roleName, pin) => {
+    await act(() => logout());
+    expect($('.login-card')).not.toBeNull();
+    if (roleName) await click($(`.role-card input[value="${roleName}"]`));
+    await type($('.pin-field input'), pin);
+    await submit($('.login-card'));
+  };
+
+  it('layar login tampil saat belum masuk, lengkap dengan dua pilihan dan keterangan PIN', async () => {
+    await act(() => logout());
+    expect($$('.role-card').map((r) => r.querySelector('strong').textContent)).toEqual(['Siswa', 'Guru']);
+    expect($('.pin-info').textContent).toContain('PIN siswa: siswa1234');
+    expect($('.pin-info').textContent).toContain('PIN guru: guru1234');
+  });
+
+  it('PIN salah, PIN tertukar, atau belum memilih peran ditolak dengan pesan ramah', async () => {
+    await loginForm(null, 'siswa1234'); // layar login baru: belum ada peran terpilih
+    expect($('[role="alert"]').textContent).toContain('Pilih Siswa atau Guru');
+    await loginForm('siswa', 'salah');
+    expect($('[role="alert"]').textContent).toContain('PIN belum tepat');
+    await loginForm('siswa', 'guru1234'); // PIN guru tidak berlaku untuk siswa
+    expect($('[role="alert"]').textContent).toContain('PIN belum tepat');
+    expect($('.login-card')).not.toBeNull();
+  });
+
+  it('siswa masuk ke beranda; guru masuk ke Dasbor Guru dan bisa keluar', async () => {
+    await loginForm('siswa', 'siswa1234');
+    expect($('.login-card')).toBeNull();
+    expect($('.hero')).not.toBeNull();
+    expect(byText('.menu-card', 'Dasbor Guru')).toBeUndefined(); // hanya untuk guru
+
+    await loginForm('guru', 'GURU1234'); // huruf besar/kecil tidak dibedakan
+    expect(window.location.hash).toBe('#/guru');
+    expect(byText('h1', 'Dasbor Guru')).toBeTruthy();
+    expect($('.guru-stats').textContent).toContain('Materi selesai');
+
+    await click(byText('.guru-intro button', 'Keluar'));
+    expect($('.login-card')).not.toBeNull();
+  });
 });
 
 describe('soal cerita: siklus pemodelan 5 tahap', () => {
@@ -108,11 +152,14 @@ describe('soal cerita: siklus pemodelan 5 tahap', () => {
 });
 
 describe('lencana', () => {
-  it('beranda punya kartu menu Lencanaku yang membuka halaman lencana', async () => {
-    const card = byText('.menu-card', 'Lencanaku');
-    expect(card.textContent).toContain('0/4 lencana diraih');
-    expect($('.badge-card')).toBeNull(); // rak lencana tidak lagi di beranda
-    expect(card.getAttribute('href')).toBe('#/lencana');
+  it('beranda menampilkan etalase lencana sebagai penyemangat', async () => {
+    const show = $('.badge-showcase');
+    expect(show.textContent).toContain('0/4 lencana diraih');
+    expect($$('.medal').length).toBe(4);
+    expect($$('.medal.locked').length).toBe(4);
+    expect($('.bs-count').getAttribute('href')).toBe('#/lencana');
+    expect($('.bs-next').textContent).toContain('Target berikutnya');
+    expect($('.badge-card')).toBeNull(); // kartu detail tetap di halaman Lencanaku
   });
 
   it('halaman lencana menampilkan 4 lencana terkunci beserta progres', async () => {
@@ -248,7 +295,7 @@ describe('menu samping buka/tutup', () => {
 describe('navigasi', () => {
   it('Lab Grafik & Pengaturan ada di navigasi samping', async () => {
     const side = $$('.bottomnav a.side-only').map((a) => a.textContent);
-    expect(side).toEqual(['🧪Lab Grafik', '⚙️Pengaturan']);
+    expect(side).toEqual(['🧪Lab Grafik', '💬Tanya AI', '⚙️Pengaturan']);
     await goTo('/lab');
     expect(byText('.bottomnav a', 'Lab Grafik').className).toContain('active');
   });
@@ -262,7 +309,7 @@ describe('pengaturan suara & konfeti', () => {
     await click($('input[aria-label="Animasi konfeti"]'));
     expect(getState().settings.sound).toBe(false);
     expect(getState().settings.celebrate).toBe(false);
-    expect(byText('strong', 'Efek suara').textContent).toContain('🔇');
+    expect($('.setting-ico[data-name="senyap"]')).not.toBeNull(); // ikon speaker berubah jadi senyap
   });
 });
 

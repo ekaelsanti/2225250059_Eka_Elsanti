@@ -4,6 +4,9 @@ import Gradi from '../components/Gradi.jsx';
 import { Page } from '../components/Layout.jsx';
 import { MODULES } from '../content/modules.js';
 import { addNote, deleteNote, useAppState } from '../store/store.js';
+import Illus from '../components/Illus.jsx';
+import PageBanner from '../components/PageBanner.jsx';
+import { PAGE_TEXT } from '../content/strings.id.js';
 
 const dateFmt = new Intl.DateTimeFormat('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
 
@@ -17,12 +20,13 @@ export default function CatatanScreen() {
 
   return (
     <Page title="Catatan" subtitle="Catatanku & poin inti">
+      <PageBanner tone="pink" illus="catatan" title={PAGE_TEXT.catatan.title} text={PAGE_TEXT.catatan.text} />
       <div className="segmented two" role="tablist">
         <button role="tab" aria-selected={tab === 'catatan'} className={tab === 'catatan' ? 'on' : ''} onClick={() => setTab('catatan')}>
-          <strong>📒 Catatanku</strong>
+          <strong><Illus name="catatan" size={22} className="ico" /> Catatanku</strong>
         </button>
         <button role="tab" aria-selected={tab === 'poin'} className={tab === 'poin' ? 'on' : ''} onClick={() => setTab('poin')}>
-          <strong>⭐ Poin Inti</strong>
+          <strong><Illus name="bintang" size={22} className="ico" /> Poin Inti</strong>
         </button>
       </div>
 
@@ -53,7 +57,7 @@ export default function CatatanScreen() {
                   <button className="icon-btn small" aria-label="Hapus catatan" onClick={() => {
                     if (window.confirm('Hapus catatan ini?')) deleteNote(n.id);
                   }}>
-                    🗑
+                    <Illus name="hapus" size={22} />
                   </button>
                 </header>
                 <p>{n.text}</p>
@@ -77,7 +81,7 @@ export default function CatatanScreen() {
               </h3>
               {m.chunks.filter((c) => c.keyPoint).map((c) => (
                 <div key={c.keyPoint} className="keypoint">
-                  <span aria-hidden="true">⭐</span> <span>{c.keyPoint}</span>
+                  <Illus name="bintang" size={22} className="ico" /> <span>{c.keyPoint}</span>
                 </div>
               ))}
             </article>

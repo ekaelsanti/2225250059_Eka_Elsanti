@@ -15,6 +15,7 @@ Sumber kebenaran:
 - Kebutuhan produk: [docs/PRD.md](docs/PRD.md)
 - Spesifikasi fitur: [docs/FEATURES.md](docs/FEATURES.md)
 - Literasi & siklus pemodelan: [docs/MATH_LITERACY.md](docs/MATH_LITERACY.md)
+- Alur belajar RMT (Rigorous Mathematical Thinking): [docs/RMT_FLOW.md](docs/RMT_FLOW.md)
 - Mesin pemodelan Python: [docs/MODELING_ENGINE.md](docs/MODELING_ENGINE.md)
 - Arsitektur: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 - Konten: [docs/CONTENT_SPEC.md](docs/CONTENT_SPEC.md)
@@ -128,8 +129,10 @@ Kode di dalam kurung menunjuk temuan wawancara.
 ## 7. Larangan
 
 - Jangan menambah *login* atau mengirim data siswa ke server. API hanya menerima teks soal/model, **tanpa** kode peserta.
+  **Pengecualian yang disetujui pemilik proyek (18 Nov 2026):** layar masuk lokal Siswa/Guru dengan PIN (`src/app/session.js`). Hanya pemisah tampilan, tanpa akun, tanpa server, tanpa nama asli.
 - Jangan menyimpan nama asli siswa; gunakan kode peserta (mis. `S01`).
 - Jangan menambah AI generatif/LLM tanpa persetujuan eksplisit (lihat ADR-08).
+  **Disetujui pemilik proyek (18 Nov 2026):** F-34 Tanya AI saja (`mathengine/tutor.py`, `src/app/tanya.js`). Bank jawaban offline dijawab lebih dulu; Claude API hanya lewat server Python, kunci API di `services/math-engine/.env` (tidak pernah di aplikasi). Yang dikirim hanya teks pertanyaan + riwayat singkat, tanpa kode peserta. AI memberi petunjuk bertahap, bukan langsung jawaban akhir.
 - Jangan menambah animasi dekoratif, suara yang berbunyi tanpa aksi siswa, atau *leaderboard*.
   **Pengecualian yang disetujui pemilik proyek (12 Nov 2026):**
   - konfeti singkat (± 1,5 detik) hanya saat menyelesaikan bab materi atau soal cerita (`src/app/celebrate.js`);

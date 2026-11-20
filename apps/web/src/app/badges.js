@@ -6,6 +6,9 @@ import { MODULES } from '../content/modules.js';
 export const BADGES = [
   {
     id: 'penjelajah-garis',
+    color: '#3b82f6',
+    to: '/materi',
+    cta: 'Baca materi',
     icon: '📐',
     title: 'Penjelajah Garis',
     desc: 'Selesai membaca semua materi dasar.',
@@ -16,6 +19,9 @@ export const BADGES = [
   },
   {
     id: 'penembak-jitu',
+    color: '#6366f1',
+    to: '/latihan',
+    cta: 'Ayo latihan',
     icon: '🎯',
     title: 'Penembak Jitu Gradien',
     desc: 'Menjawab 5 soal latihan berturut-turut tanpa salah.',
@@ -26,6 +32,9 @@ export const BADGES = [
   },
   {
     id: 'master-literasi',
+    color: '#8b5cf6',
+    to: '/literasi',
+    cta: 'Kerjakan soal cerita',
     icon: '🧠',
     title: 'Master Literasi',
     desc: 'Menyelesaikan 4 soal cerita kehidupan sehari-hari.',
@@ -36,6 +45,9 @@ export const BADGES = [
   },
   {
     id: 'ilmuwan-grafik',
+    color: '#0ea5e9',
+    to: '/lab',
+    cta: 'Buka Lab Grafik',
     icon: '🔬',
     title: 'Ilmuwan Grafik',
     desc: 'Mencoba nilai m positif, negatif, dan nol di Lab Grafik.',

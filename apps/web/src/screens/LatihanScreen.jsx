@@ -10,12 +10,15 @@ import { parseAnswer } from '../math/answer.js';
 import { formatNumber, toNumber, toString } from '../math/fraction.js';
 import { coefX, generateEquationProblem, generateRelationProblem, generateTwoPointProblem } from '../math/generator.js';
 import { recordPractice, useAppState } from '../store/store.js';
+import Illus from '../components/Illus.jsx';
+import PageBanner from '../components/PageBanner.jsx';
+import { PAGE_TEXT } from '../content/strings.id.js';
 
 const KINDS = [
-  ['grafik', '📈', 'Dua titik + grafik'],
-  ['titik', '📍', 'Dua titik saja'],
-  ['persamaan', '🟰', 'Dari persamaan'],
-  ['hubungan', '∥', 'Sejajar & tegak lurus'],
+  ['grafik', 'grafik', 'Dua titik + grafik'],
+  ['titik', 'pin', 'Dua titik saja'],
+  ['persamaan', 'samaDengan', 'Dari persamaan'],
+  ['hubungan', 'sejajar', 'Sejajar & tegak lurus'],
 ];
 
 const POINT_LEVELS = [[1, 'Mudah', 'Semua positif'], [2, 'Sedang', 'Ada negatif'], [3, 'Pecahan', 'Gradien pecahan'], [4, 'Tantangan', 'Banyak negatif']];
@@ -191,6 +194,7 @@ export default function LatihanScreen() {
 
   return (
     <Page title="Latihan" subtitle={KINDS.find(([k]) => k === kind)[2]}>
+      <PageBanner tone="green" illus="latihan" title={PAGE_TEXT.latihan.title} text={PAGE_TEXT.latihan.text} />
       <div className="chips kind-chips" role="tablist" aria-label="Jenis soal">
         {KINDS.map(([k, icon, name]) => (
           <button key={k} role="tab" aria-selected={kind === k} className={`chip ${kind === k ? 'on' : ''}`}
@@ -198,7 +202,7 @@ export default function LatihanScreen() {
               setKind(k);
               next();
             }}>
-            <span aria-hidden="true">{icon}</span> {name}
+            <Illus name={icon} size={22} className="ico" /> {name}
           </button>
         ))}
       </div>
@@ -274,7 +278,7 @@ export default function LatihanScreen() {
 
         {steps.slice(0, Math.min(step, steps.length)).map((s, i) => (
           <p key={i} className="done-step">
-            ✔ {s.label} = <b>{s.display}</b>
+            <Illus name="benar" size={18} className="ico" /> {s.label} = <b>{s.display}</b>
           </p>
         ))}
 
@@ -300,7 +304,7 @@ export default function LatihanScreen() {
             </div>
             {kind !== 'grafik' && (
               <button type="button" className="chip-btn" onClick={() => setReveal(!reveal)} aria-expanded={reveal}>
-                📈 {reveal ? 'Sembunyikan grafik' : 'Lihat di grafik'}
+                <Illus name="grafik" size={20} className="ico" /> {reveal ? 'Sembunyikan grafik' : 'Lihat di grafik'}
               </button>
             )}
             {reveal && kind === 'titik' && (
@@ -326,7 +330,7 @@ export default function LatihanScreen() {
 
         {kind === 'grafik' && !done && step === 2 && (
           <details className="validate">
-            <summary>📈 Cek tebakanmu di grafik (F-15)</summary>
+            <summary><Illus name="grafik" size={20} className="ico" /> Cek tebakanmu di grafik (F-15)</summary>
             <p className="muted">Ketik gradien tebakanmu. Garis putus-putus akan digambar dari titik A.</p>
             <div className="row">
               <input value={check} onChange={(e) => setCheck(e.target.value)} placeholder="mis. 3/2" aria-label="Gradien tebakan" />

@@ -12,6 +12,7 @@ const INITIAL = {
   badgesSeen: [], // lencana yang sudah diumumkan (agar notifikasi muncul sekali)
   stories: {}, // { id: { done, assisted } }
   notes: [], // { id, title, text, source, createdAt }
+  rmt: {}, // F-35 Jalur RMT: { gradien: { phase, done: [faseId], notes, finished } }
   last: null, // { path, label }
 };
 
