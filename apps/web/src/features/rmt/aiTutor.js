@@ -1,22 +1,15 @@
-// F-35 Placeholder Mediator AI untuk Jalur RMT.
+// F-35 Mediator AI untuk Jalur RMT.
 //
-// STATUS: belum disambungkan (enabled: false). UI sudah siap; tinggal sambungkan penyedia AI.
-//
-// Cara menyambungkan (rencana DeepSeek, lihat docs/RMT_FLOW.md §6):
-//   1. Tambahkan penyedia di SERVER Python (services/math-engine/mathengine/tutor.py),
-//      misalnya pilihan GRADIEKAN_AI_PROVIDER=deepseek. Kunci API hanya di services/math-engine/.env.
-//      JANGAN pernah menaruh kunci API di aplikasi (kode ini berjalan di HP siswa).
-//   2. Server menerima konteks fase RMT (lesson, phase) agar AI bertanya balik sebagai mediator
-//      (mediated questioning), bukan memberi jawaban akhir.
-//   3. Ubah AI_TUTOR.enabled menjadi true.
-//   4. Catat persetujuan pemilik proyek + ADR di CLAUDE.md §7 dan docs/ARCHITECTURE.md §8
-//      (persetujuan F-34 saat ini hanya untuk Claude API).
+// Tersambung ke endpoint yang sama dengan Tanya AI (/api/v1/ask):
+//   - produksi: Supabase Edge Function "api" (Gemini), diproksi Netlify — lihat docs/DEPLOYMENT.md;
+//   - lokal: server Python (mathengine/api.py).
+// Kunci API hanya ada di server (Supabase secret / services/math-engine/.env), TIDAK PERNAH di aplikasi ini.
+// Yang dikirim: teks pertanyaan, riwayat singkat, dan id jalur/fase. Tanpa nama atau kode peserta.
 
 const API_BASE = import.meta.env?.VITE_API_URL ?? '/api';
 
 export const AI_TUTOR = {
-  enabled: false,
-  provider: 'deepseek', // direncanakan; dipilih di server, bukan di sini
+  enabled: true,
   endpoint: `${API_BASE}/v1/ask`,
 };
 
@@ -26,7 +19,7 @@ export const AI_TUTOR = {
  */
 
 /**
- * Kirim pertanyaan siswa ke Mediator AI. Hanya teks pertanyaan + konteks fase yang dikirim (tanpa kode peserta).
+ * Kirim pertanyaan siswa ke Mediator AI. Server menambahkan peran "mediator" sesuai fase RMT.
  * @param {TutorRequest} req
  * @returns {Promise<TutorResult>}
  */
@@ -34,11 +27,14 @@ export async function askTutor({ lessonId, phaseId, question, history = [] }) {
   if (!AI_TUTOR.enabled) return { ok: false, reason: 'not-connected' };
   if (typeof navigator !== 'undefined' && navigator.onLine === false) return { ok: false, reason: 'offline' };
   try {
-    // TODO(DeepSeek): setelah server mendukung field konteks, kirim { lesson, phase } sebagai field terpisah.
     const res = await fetch(AI_TUTOR.endpoint, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question: `[Jalur RMT · ${lessonId} · fase ${phaseId}] ${question}`.slice(0, 500), history: history.slice(-16) }),
+      body: JSON.stringify({
+        question: question.slice(0, 500),
+        history: history.slice(-16).map((t) => ({ role: t.role, content: t.content.slice(0, 1500) })),
+        context: { lesson: lessonId, phase: phaseId },
+      }),
     });
     const data = await res.json().catch(() => ({}));
     if (!res.ok) return { ok: false, reason: 'server', message: typeof data.detail === 'string' ? data.detail : undefined };

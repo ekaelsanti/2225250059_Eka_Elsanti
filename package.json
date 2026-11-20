@@ -1,6 +1,7 @@
 {
   "name": "gradiekan",
   "private": true,
+  "type": "module",
   "description": "GradieKAn: belajar gradien, literasi matematika, dan pemodelan soal cerita (JavaScript + Python)",
   "workspaces": [
     "apps/web"
@@ -16,9 +17,19 @@
     "dev:api": "node scripts/py.mjs -m uvicorn mathengine.api:app --reload --port 8000",
     "test:py": "node scripts/py.mjs -m pytest -q",
     "lint:py": "node scripts/py.mjs -m ruff check .",
-    "test:all": "npm run test:py && npm run test:web"
+    "test:all": "npm run test:py && npm run test:web && npm run api:test",
+    "api:dev": "node --env-file-if-exists=.env supabase/functions/api/dev-server.ts",
+    "api:test": "node --test \"supabase/functions/api/tests/*.test.ts\"",
+    "api:deploy": "supabase functions deploy api --no-verify-jwt",
+    "db:push": "supabase db push"
   },
   "engines": {
     "node": ">=20"
+  },
+  "devDependencies": {
+    "@hono/node-server": "^2.1.11",
+    "hono": "^4.13.19",
+    "postgres": "^3.4.9",
+    "supabase": "^3.2.0"
   }
 }

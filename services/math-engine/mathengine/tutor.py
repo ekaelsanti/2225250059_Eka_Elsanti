@@ -41,10 +41,45 @@ class ChatTurn(BaseModel):
     content: str = Field(min_length=1, max_length=1500)
 
 
+class AskContext(BaseModel):
+    """F-35: jalur & fase RMT (sama dengan Edge Function supabase/functions/api). Tanpa data siswa."""
+
+    model_config = ConfigDict(extra="forbid")
+    lesson: str | None = Field(default=None, min_length=1, max_length=40, pattern=r"^[a-z0-9-]+$")
+    phase: str | None = Field(default=None, min_length=1, max_length=40, pattern=r"^[a-z0-9-]+$")
+
+
 class AskRequest(BaseModel):
     model_config = ConfigDict(extra="forbid")
     question: str = Field(min_length=1, max_length=500)
     history: list[ChatTurn] = Field(default_factory=list, max_length=MAX_TURNS * 2)
+    context: AskContext | None = None
+
+
+RMT_PHASES = {
+    "tujuan": "Tujuan (mediasi: tujuan dan makna belajar)",
+    "amati": "Amati (fase Input: membandingkan naik dan jalan benda sehari-hari)",
+    "representasi": "Representasi (fase Elaborasi: tabel naik ÷ jalan dan bidang koordinat)",
+    "manipulasi": "Manipulasi (fase Elaborasi: membuat dugaan, lalu mengubah Δx dengan Δy tetap)",
+    "konsep": "Konsep (fase Elaborasi: definisi gradien m = Δy/Δx dan bahasa matematika)",
+    "terapkan": "Terapkan (fase Output: rencana, menghitung Δy, Δx, m, lalu validasi di grafik)",
+    "transfer": "Transfer (fase Output: laju pada soal cerita tarif ojek)",
+    "refleksi": "Refleksi (metakognisi: apa yang dipelajari dan apa yang sulit)",
+}
+
+
+def system_prompt(context: AskContext | None) -> str:
+    """Prompt dasar; dari Jalur RMT ditambah peran mediator (sama dengan ai/prompt.ts di Edge Function)."""
+    phase = RMT_PHASES.get(context.phase or "") if context else None
+    if not phase:
+        return SYSTEM_PROMPT
+    return (
+        f"{SYSTEM_PROMPT}\n\nSiswa sedang di Jalur RMT (Rigorous Mathematical Thinking), fase {phase}.\n"
+        "Bertindaklah sebagai mediator:\n"
+        "- Ajukan satu pertanyaan penuntun yang membuat siswa berpikir, bukan jawaban akhir.\n"
+        "- Kaitkan dengan tujuan fase ini dan dengan pengalaman sehari-hari siswa.\n"
+        "- Dorong siswa membuat rencana atau dugaan sebelum menghitung. Hindari coba-coba tanpa arah."
+    )
 
 
 class AskResponse(BaseModel):
@@ -105,7 +140,7 @@ def ask(req: AskRequest) -> AskResponse:
             output_config={"effort": "low"},
             betas=["server-side-fallback-2026-07-01"],
             fallbacks="default",
-            system=SYSTEM_PROMPT,
+            system=system_prompt(req.context),
             messages=build_messages(req),
         )
     except anthropic.AuthenticationError as exc:

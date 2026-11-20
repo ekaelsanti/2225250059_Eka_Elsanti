@@ -27,3 +27,8 @@ exports/
 !.env.example
 .DS_Store
 Thumbs.db
+
+# Supabase CLI (lokal)
+supabase/.temp/
+supabase/.branches/
+.netlify/

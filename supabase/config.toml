@@ -1,0 +1,10 @@
+# Supabase CLI config (GradieKAn). Only the parts this project uses; see docs/DEPLOYMENT.md.
+project_id = "gradiekan"
+
+[db]
+major_version = 17
+
+# Edge Function "api": the app has no Supabase Auth (students are anonymous), so the built-in JWT check is off.
+# The function enforces its own limits (strict validation, daily quota per anonymous client, monthly AI budget).
+[functions.api]
+verify_jwt = false

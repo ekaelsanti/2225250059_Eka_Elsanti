@@ -1,5 +1,5 @@
 // @vitest-environment jsdom
-// F-35 Jalur RMT: konten konsisten, alur fase terkunci sampai tugas selesai, placeholder Mediator AI aman.
+// F-35 Jalur RMT: konten konsisten, alur fase terkunci sampai tugas selesai, Mediator AI aman (tanpa kode peserta).
 import { act } from 'react';
 import { createRoot } from 'react-dom/client';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
@@ -34,14 +34,24 @@ describe('konten Jalur RMT', () => {
   });
 });
 
-describe('placeholder Mediator AI', () => {
-  it('belum tersambung: tidak memanggil jaringan', async () => {
-    const fetchMock = vi.fn();
+describe('Mediator AI', () => {
+  afterEach(() => vi.unstubAllGlobals());
+  it('mengirim pertanyaan + konteks fase saja, tanpa kode peserta', async () => {
+    const fetchMock = vi.fn(async () => ({ ok: true, json: async () => ({ answer: 'Coba bandingkan naik dengan jalan.', source: 'ai' }) }));
     vi.stubGlobal('fetch', fetchMock);
-    expect(AI_TUTOR.enabled).toBe(false);
-    expect(await askTutor({ lessonId: 'gradien', phaseId: 'amati', question: 'kenapa?' })).toEqual({ ok: false, reason: 'not-connected' });
-    expect(fetchMock).not.toHaveBeenCalled();
-    vi.unstubAllGlobals();
+    expect(AI_TUTOR.enabled).toBe(true);
+    const r = await askTutor({ lessonId: 'gradien', phaseId: 'amati', question: 'kenapa?' });
+    expect(r).toEqual({ ok: true, answer: 'Coba bandingkan naik dengan jalan.' });
+    const [url, init] = fetchMock.mock.calls[0];
+    expect(url).toBe('/api/v1/ask');
+    const body = JSON.parse(init.body);
+    expect(Object.keys(body).sort()).toEqual(['context', 'history', 'question']);
+    expect(body.context).toEqual({ lesson: 'gradien', phase: 'amati' });
+  });
+  it('server menolak (mis. kuota habis): pesan server diteruskan', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => ({ ok: false, json: async () => ({ detail: 'Kuota pertanyaan AI hari ini sudah habis. Coba lagi besok, ya.' }) })));
+    const r = await askTutor({ lessonId: 'gradien', phaseId: 'amati', question: 'q' });
+    expect(r).toEqual({ ok: false, reason: 'server', message: 'Kuota pertanyaan AI hari ini sudah habis. Coba lagi besok, ya.' });
   });
 });
 
@@ -91,7 +101,10 @@ describe('layar Jalur RMT', () => {
     expect(container.textContent).toContain(lesson.mediator.tujuan[0]);
   });
 
-  it('slot Mediator AI tampil dan memberi pesan placeholder', async () => {
+  it('slot Mediator AI: server mati → pesan ramah, bukan galat', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => {
+      throw new TypeError('Failed to fetch');
+    }));
     await click(btn('Tanya Mediator AI'));
     const ta = $('[data-ai-slot] textarea');
     await act(() => {
@@ -101,6 +114,7 @@ describe('layar Jalur RMT', () => {
     await act(async () => {
       btn('Kirim').dispatchEvent(new MouseEvent('click', { bubbles: true }));
     });
-    expect($('[data-ai-slot]').textContent).toContain('belum disambungkan');
+    expect($('[data-ai-slot]').textContent).toContain('belum bisa dihubungi');
+    vi.unstubAllGlobals();
   });
 });

@@ -107,19 +107,17 @@ Reset garis pinggir hanya berlaku di dalam `.rmt-scope`, supaya tampilan lama ti
 | Gambar dulu, rumus kemudian | Rumus formal baru muncul di fase 5, setelah amati–representasi–manipulasi |
 | Umpan balik spesifik | Setiap pilihan salah punya penjelasan sendiri; angka memakai `checkNumber` |
 
-## 6. Rencana integrasi Mediator AI (DeepSeek)
+## 6. Mediator AI (Gemini)
 
-UI sudah siap: `AiTutorSlot` di setiap fase. Adaptor `features/rmt/aiTutor.js` saat ini mengembalikan `not-connected`.
+`AiTutorSlot` di setiap fase memanggil `features/rmt/aiTutor.js` → `POST /api/v1/ask` dengan
+`{ question, history, context: { lesson, phase } }`.
 
-Langkah menyambungkan:
-1. Tambahkan penyedia DeepSeek di **server Python** (`mathengine/tutor.py`), mis. `GRADIEKAN_AI_PROVIDER=deepseek`.
-   Kunci API hanya di `services/math-engine/.env`. **Jangan** taruh kunci di aplikasi, karena kode berjalan di HP siswa.
-2. Perluas `AskRequest` dengan konteks opsional `{ lesson, phase }`. Prompt sistem meminta AI bertanya balik sebagai mediator, bukan memberi jawaban akhir.
-3. Ubah `AI_TUTOR.enabled` menjadi `true`.
-4. Catat persetujuan pemilik proyek di CLAUDE.md §7 dan ADR di ARCHITECTURE.md §8.
-   Persetujuan F-34 saat ini hanya mencakup Claude API, dan DeepSeek mengirim data ke pihak ketiga yang berbeda.
-
-Kontrak data: hanya teks pertanyaan, riwayat singkat, dan id fase yang dikirim. Kode peserta tidak pernah dikirim.
+- **Produksi:** Supabase Edge Function `api` (Gemini). `ai/prompt.ts` menambahkan peran mediator sesuai fase:
+  pertanyaan penuntun, kaitan dengan tujuan fase, dan dorongan membuat rencana/dugaan sebelum menghitung.
+  Lihat [DEPLOYMENT.md](DEPLOYMENT.md).
+- **Lokal:** server Python (`mathengine/tutor.py`) menerima `context` yang sama.
+- Kunci API hanya di server. Yang dikirim hanya pertanyaan, riwayat singkat, dan id fase. Kode peserta ditolak (422).
+- Database mencatat jumlah permintaan per fase (tanpa teks), untuk melihat fase mana yang paling butuh bantuan.
 
 ## 7. Keterbatasan dan langkah berikutnya
 

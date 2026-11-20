@@ -1,0 +1,49 @@
+# Netlify: frontend PWA (apps/web). The API is the Supabase Edge Function "api"; /api/* is proxied so the
+# site stays same-origin (no CORS, offline cache keeps working). Docs: docs/DEPLOYMENT.md
+
+[build]
+  # npm workspaces: Netlify installs dependencies from the repository root (the lockfile lives there), then builds apps/web.
+  base = "."
+  command = "npm run build:web"
+  publish = "apps/web/dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# Proxy the API to the Supabase Edge Function "api".
+# GANTI-PROJECT-REF → your Supabase project ref (Project Settings → General), then commit and push.
+[[redirects]]
+  from = "/api/*"
+  to = "https://GANTI-PROJECT-REF.supabase.co/functions/v1/api/:splat"
+  status = 200
+  force = true
+
+# Hash routing (#/materi): every other path serves the app.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# The service worker and manifest must not be cached, so updates reach students quickly.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[headers]]
+  for = "/manifest.webmanifest"
+  [headers.values]
+    Cache-Control = "no-cache"
+    Content-Type = "application/manifest+json"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

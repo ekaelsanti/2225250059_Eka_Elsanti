@@ -51,3 +51,17 @@ def test_answer_is_passed_through(monkeypatch: pytest.MonkeyPatch) -> None:
     res = client.post("/v1/ask", json={"question": "Apa itu gradien?", "history": []})
     assert res.status_code == 200
     assert res.json() == {"answer": "Jawaban untuk: Apa itu gradien?", "source": "ai"}
+
+
+def test_rmt_context_accepted_and_adds_mediator_role() -> None:
+    req = tutor.AskRequest(question="Kenapa?", context={"lesson": "gradien", "phase": "amati"})
+    assert "Jalur RMT" in tutor.system_prompt(req.context)
+    assert "Jalur RMT" not in tutor.system_prompt(None)
+    assert "Jalur RMT" not in tutor.system_prompt(tutor.AskContext(phase="fase-palsu"))
+
+
+def test_rmt_context_rejects_extra_fields() -> None:
+    res = client.post(
+        "/v1/ask", json={"question": "q", "context": {"phase": "amati", "student": "S01"}}
+    )
+    assert res.status_code == 422

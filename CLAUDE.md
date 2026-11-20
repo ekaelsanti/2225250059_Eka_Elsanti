@@ -69,6 +69,12 @@ npm run test:all         # semua di atas
 # Rilis
 npm run build:web
 npx cap sync android && npx cap open android
+
+# Deploy (docs/DEPLOYMENT.md): Netlify (frontend) + Supabase (Edge Function + Postgres)
+npm run api:test         # tes Edge Function supabase/functions/api (Node, tanpa jaringan)
+npm run api:dev          # Edge Function lokal di http://localhost:8787/api/v1
+npm run db:push          # migrasi supabase/migrations/ ke Supabase
+npm run api:deploy       # deploy Edge Function "api"
 ```
 
 Sebelum menyatakan tugas selesai: `npm run lint && npm run test:all`.
@@ -133,6 +139,8 @@ Kode di dalam kurung menunjuk temuan wawancara.
 - Jangan menyimpan nama asli siswa; gunakan kode peserta (mis. `S01`).
 - Jangan menambah AI generatif/LLM tanpa persetujuan eksplisit (lihat ADR-08).
   **Disetujui pemilik proyek (18 Nov 2026):** F-34 Tanya AI saja (`mathengine/tutor.py`, `src/app/tanya.js`). Bank jawaban offline dijawab lebih dulu; Claude API hanya lewat server Python, kunci API di `services/math-engine/.env` (tidak pernah di aplikasi). Yang dikirim hanya teks pertanyaan + riwayat singkat, tanpa kode peserta. AI memberi petunjuk bertahap, bukan langsung jawaban akhir.
+  **Disetujui pemilik proyek (20 Nov 2026):** di produksi, Tanya AI (F-34) dan Mediator AI Jalur RMT (F-35) memakai **Gemini** lewat Supabase Edge Function `supabase/functions/api` (kunci `GEMINI_API_KEY` hanya sebagai Supabase secret). Aturan data sama: tanpa kode peserta, isi pertanyaan tidak disimpan. Sebelum siswa sungguhan memakai AI, aktifkan *paid tier* Gemini (paket gratis boleh dipakai Google untuk melatih produk).
+  **Database Supabase** hanya untuk pemakaian AI anonim (kuota, anggaran, jumlah per fase). Progres, catatan, dan identitas siswa **tidak** dikirim ke server.
 - Jangan menambah animasi dekoratif, suara yang berbunyi tanpa aksi siswa, atau *leaderboard*.
   **Pengecualian yang disetujui pemilik proyek (12 Nov 2026):**
   - konfeti singkat (± 1,5 detik) hanya saat menyelesaikan bab materi atau soal cerita (`src/app/celebrate.js`);
